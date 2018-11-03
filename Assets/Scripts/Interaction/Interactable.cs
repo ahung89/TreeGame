@@ -2,13 +2,7 @@
 
 public class Interactable : MonoBehaviour {
 
-    MeshRenderer rend;
     bool isInteracting = false;
-
-    private void Awake()
-    {
-        rend = GetComponent<MeshRenderer>();
-    }
 
     public bool IsInteracting()
     {

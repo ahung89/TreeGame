@@ -2,7 +2,6 @@
 using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour {
-
     public PickupHolder pickupHolder;
     public GameObject player;
 
