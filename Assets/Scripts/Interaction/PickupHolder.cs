@@ -9,6 +9,7 @@ public class PickupHolder : MonoBehaviour {
 
 	public void TryPickup()
     {
+        // Debug.Log("TryPickup");
         if (heldItem != null)
         {
             DropItem();

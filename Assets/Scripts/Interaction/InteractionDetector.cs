@@ -78,9 +78,11 @@ public class InteractionDetector : MonoBehaviour {
         }
     }
 
-    public void PerformInteractions()
+    public bool PerformInteractions()
     {
         UpdateNearestInteractable();
+
+        bool tryPickupOrDropNext = true;
 
         if (interactablesInRange.Count > 0)
         {
@@ -92,9 +94,11 @@ public class InteractionDetector : MonoBehaviour {
                 }
                 else if (interactable == interactablesInRange[0])
                 {
-                    interactable.Interact(pickupHolder.GetHeldItem());
+                    tryPickupOrDropNext = interactable.Interact(pickupHolder.GetHeldItem());
                 }
             }
         }
+
+        return tryPickupOrDropNext;
     }
 }

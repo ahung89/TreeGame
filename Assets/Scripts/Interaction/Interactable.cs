@@ -16,10 +16,11 @@ public class Interactable : MonoBehaviour {
         return heldItem == null;
     }
 
-    public virtual void Interact(Pickupable heldItem)
+    public virtual bool Interact(Pickupable heldItem)
     {
         //Debug.Log("interacting with " + gameObject.name + " using pickupable " + heldItem.name);
-        isInteracting = true;
+        // isInteracting = true; // For now, let's ignore the isInteracting variable
+        return true; // the returned bool indicates whether PlayerInput should call PickupHolder.TryPickup() following this interaction
     }
 
     public virtual void StopInteracting()

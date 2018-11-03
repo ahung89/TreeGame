@@ -30,33 +30,43 @@ public class Cup : Pickupable {
         }
     }
 
-    public override void Interact(Pickupable heldItem)
+    // Returns whether to TryPickUp or Drop after this action
+    public override bool Interact(Pickupable heldItem)
     {
+        // Debug.Log("Interact with : " + heldItem);
         if (CanInteractWith(heldItem))
         {
             base.Interact(heldItem);
 
             if (heldItem)
             {
-                FillCup(heldItem);
+                if (TryFillCup(heldItem))
+                {
+                    return false;
+                }
             }
         }
+        return true;
     }
 
-    void FillCup(Pickupable heldItem)
+    // returns whether TryFillCup was successful
+    bool TryFillCup(Pickupable heldItem)
     {
         if (heldItem.GetComponent<Milk>())
         {
             // modify model to have milk inside of it
             Debug.Log("Cup filled with Milk");
             currentLiquid = Liquid.Milk;
+            return true;
         }
         else if (heldItem.GetComponent<Water>())
         {
             // modify model to have water inside of it
             Debug.Log("Cup filled with Water");
             currentLiquid = Liquid.Water;
+            return true;
         }
+        return false;
     }
 
     // call this from the tree object if the wrong liquid is given to the tree

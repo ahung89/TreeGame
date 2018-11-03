@@ -54,7 +54,7 @@ public class Drawer : Interactable {
         }
     }
 
-    public override void Interact(Pickupable heldItem)
+    public override bool Interact(Pickupable heldItem)
     {
         base.Interact(heldItem);
         isOpen = !isOpen;
@@ -69,5 +69,7 @@ public class Drawer : Interactable {
         }
 
         StopInteracting(); // this interaction is instantaneous
+
+        return false; // No need to try picking up or dropping after this interation
     }
 }

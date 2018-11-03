@@ -35,13 +35,16 @@ public class PlayerInput : MonoBehaviour {
         Vector3 moveVec = Vector3.forward * forward + Vector3.right * strafe;
         movement.Move(moveVec.normalized);
 
+        bool tryPickup = true;
+
         if (interact)
         {
-            interactionDetector.PerformInteractions();
+            tryPickup = interactionDetector.PerformInteractions();
         }
 
-        if (pickup)
+        if (pickup && tryPickup)
         {
+            // Debug.Log("Now Try PickUp");
             pickupHolder.TryPickup();
         }
 
