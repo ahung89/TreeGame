@@ -7,10 +7,39 @@ public class Cup : Pickupable {
     public enum Liquid { Milk, Water, None }
     public Liquid currentLiquid = Liquid.None;
 
+    public override bool CanInteractWith(Pickupable heldItem)
+    {
+        if (heldItem)
+        {
+            MilkCarton milk = heldItem.GetComponent<MilkCarton>();
+            // Get water
+
+            if (milk)
+            {
+                return true;
+            }
+            // else if water, return true
+            // else, return false, i.e. should not be able to add other objects to cup
+        }
+        else
+        {
+            return true;
+        }
+
+        return false; // Otherwise, return false by default
+    }
+
     public override void Interact(Pickupable heldItem)
     {
-        base.Interact(heldItem);
-        FillCup(heldItem);
+        if (CanInteractWith(heldItem))
+        {
+            base.Interact(heldItem);
+
+            if (heldItem)
+            {
+                FillCup(heldItem);
+            }
+        }
     }
 
     void FillCup(Pickupable heldItem)
@@ -18,7 +47,7 @@ public class Cup : Pickupable {
         if (heldItem.GetComponent<MilkCarton>())
         {
             // modify model to have milk inside of it
-
+            Debug.Log("Cup filled with Milk");
             currentLiquid = Liquid.Milk;
         }
     }

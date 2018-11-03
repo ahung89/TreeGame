@@ -10,8 +10,13 @@ public class InteractionDetector : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        // Debug.Log("OnTriggerEnter: " + other);
+
         Interactable interactable = other.GetComponent<Interactable>();
-        
+
+        // Debug.Log("iteractable: " + interactable);
+        // Debug.Log("CanInteractWith: " + interactable.CanInteractWith(pickupHolder.GetHeldItem()));
+
         if (interactable != null && interactable.CanInteractWith(pickupHolder.GetHeldItem()))
         {
             interactablesInRange.Add(interactable);
