@@ -5,7 +5,8 @@ public class InteractionDetector : MonoBehaviour {
     public PickupHolder pickupHolder;
     public GameObject player;
 
-    List<Interactable> nearbyInteractibles = new List<Interactable>();
+    List<Interactable> interactablesInRange = new List<Interactable>();
+    Interactable nearestInteractable;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +14,8 @@ public class InteractionDetector : MonoBehaviour {
         
         if (interactable)
         {
-            nearbyInteractibles.Add(interactable);
+            interactablesInRange.Add(interactable);
+            UpdateNearestInteractable();
         }
     }
 
@@ -23,7 +25,9 @@ public class InteractionDetector : MonoBehaviour {
 
         if (interactable)
         {
-            nearbyInteractibles.Remove(interactable);
+            interactablesInRange.Remove(interactable);
+            OutlineManager.Instance.UnapplyOutline(interactable.gameObject);
+            UpdateNearestInteractable();
 
             if (interactable.IsInteracting())
             {
@@ -32,25 +36,49 @@ public class InteractionDetector : MonoBehaviour {
         }
     }
 
-    public void HandleMouseTurn()
+    public Interactable GetNearestInteractable()
     {
-        Utils.SortByAngleFromPlayer(nearbyInteractibles, player);
+        return nearestInteractable;
+    }
+
+    public void UpdateNearestInteractable()
+    {
+        Utils.SortByAngleFromPlayer(interactablesInRange, player);
+    }
+
+    private void Update()
+    {
+        if (interactablesInRange.Count == 0)
+        {
+            nearestInteractable = null;
+            return;
+        }
+
+        if (nearestInteractable != interactablesInRange[0])
+        {
+            if (nearestInteractable && nearestInteractable != interactablesInRange[0])
+            {
+                OutlineManager.Instance.UnapplyOutline(nearestInteractable.gameObject);
+            }
+
+            OutlineManager.Instance.ApplyOutline(interactablesInRange[0].gameObject);
+            nearestInteractable = interactablesInRange[0];
+        }
     }
 
     public void PerformInteractions()
     {
-        //SortInteractables();
-        Utils.SortByAngleFromPlayer(nearbyInteractibles, player);
+        UpdateNearestInteractable();
 
-        if (nearbyInteractibles.Count > 0)
+        if (interactablesInRange.Count > 0)
         {
-            foreach (Interactable interactable in nearbyInteractibles)
+            foreach (Interactable interactable in interactablesInRange)
             {
                 if (interactable.IsInteracting())
                 {
                     interactable.StopInteracting();
                 }
-                else if (interactable == nearbyInteractibles[0])
+                else if (interactable == interactablesInRange[0])
                 {
                     interactable.Interact(pickupHolder.GetHeldItem());
                 }

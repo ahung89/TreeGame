@@ -75,7 +75,7 @@ public class OutlineManager : MonoBehaviour
     {
         if (!HasOutlineApplied(obj))
         {
-            Debug.LogError("You can't un-outline something that you didn't ever outline in the first place...");
+            //Debug.LogError("You can't un-outline something that you didn't ever outline in the first place...");
             return;
         }
 

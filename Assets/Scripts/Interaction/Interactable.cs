@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour {
 
     public virtual void Interact(Pickupable heldItem)
     {
+        //Debug.Log("interacting with " + gameObject.name + " using pickupable " + heldItem.name);
         isInteracting = true;
     }
 

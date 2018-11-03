@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickupable : MonoBehaviour {
+public class Pickupable : Interactable {
 
     Rigidbody rb;
     bool isHeld;
 
 	void Awake () {
         rb = GetComponent<Rigidbody>();
-        //OutlineManager.Instance.ApplyOutline(gameObject);
 	}
 
     public void Pickup(Vector3 holdPoint, Transform parent)

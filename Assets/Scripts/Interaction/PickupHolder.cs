@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PickupHolder : MonoBehaviour {
 
     public Transform holdPoint;
-    public PickupDetector pickupDetector;
     public InteractionDetector interactionDetector;
 
     private Pickupable heldItem;
@@ -29,12 +26,12 @@ public class PickupHolder : MonoBehaviour {
 
     void PickupItem()
     {
-        foreach (Pickupable pickup in pickupDetector.GetPickupsInRange())
+        if (interactionDetector.GetNearestInteractable())
         {
-            if (!pickup.IsHeld())
+            Pickupable pickup = interactionDetector.GetNearestInteractable().GetComponent<Pickupable>();
+            if (pickup && !pickup.IsHeld())
             {
                 DoPickup(pickup);
-                return;
             }
         }
     }

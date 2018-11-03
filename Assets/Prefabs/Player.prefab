@@ -63,7 +63,6 @@ GameObject:
   - component: {fileID: 23415900350722254}
   - component: {fileID: 65715596312796732}
   - component: {fileID: 114856422357251508}
-  - component: {fileID: 114865405415518678}
   - component: {fileID: 114639528747242078}
   m_Layer: 0
   m_Name: InteractionDetector
@@ -322,6 +321,22 @@ MonoBehaviour:
   interactionDetector: {fileID: 114856422357251508}
   pickupHolder: {fileID: 114639528747242078}
   lookSpeedMultiplier: 0
+  lookRotationEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114856422357251508}
+        m_MethodName: UpdateNearestInteractable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114639528747242078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -334,7 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdPoint: {fileID: 4023088946289654}
-  pickupDetector: {fileID: 114865405415518678}
   interactionDetector: {fileID: 114856422357251508}
 --- !u!114 &114856422357251508
 MonoBehaviour:
@@ -347,19 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d13132cde92854db5263d28d99bcce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupHolder: {fileID: 0}
+  pickupHolder: {fileID: 114639528747242078}
   player: {fileID: 1876503615241438}
---- !u!114 &114865405415518678
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1908076862433262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8394528b28a67d44ad5d243094775cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114982987857780178
 MonoBehaviour:
   m_ObjectHideFlags: 1

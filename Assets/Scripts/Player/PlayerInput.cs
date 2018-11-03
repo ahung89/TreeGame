@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour {
 
@@ -6,6 +7,8 @@ public class PlayerInput : MonoBehaviour {
     public InteractionDetector interactionDetector;
     public PickupHolder pickupHolder;
     public float lookSpeedMultiplier;
+
+    public UnityEvent lookRotationEvent;
 
     Movement movement;
     float cameraRotation = 0;
@@ -38,6 +41,11 @@ public class PlayerInput : MonoBehaviour {
         if (pickup)
         {
             pickupHolder.TryPickup();
+        }
+
+        if (lookY > 0 || lookX > 0)
+        {
+            lookRotationEvent.Invoke();
         }
 
         movement.AddToYaw(lookX);
