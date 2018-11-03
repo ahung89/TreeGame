@@ -11,22 +11,23 @@ public class Cup : Pickupable {
     {
         if (heldItem)
         {
-            MilkCarton milk = heldItem.GetComponent<MilkCarton>();
-            // Get water
-
-            if (milk)
+            if (heldItem.GetComponent<Milk>())
             {
                 return true;
             }
-            // else if water, return true
-            // else, return false, i.e. should not be able to add other objects to cup
+            else if (heldItem.GetComponent<Water>())
+            {
+                return true;
+            }
+            else
+            {
+                return false; // otherwise, player should not be able to add other objects to cup
+            }
         }
         else
         {
-            return true;
+            return true; // when nothing is held, the player should be able to pick up the cup
         }
-
-        return false; // Otherwise, return false by default
     }
 
     public override void Interact(Pickupable heldItem)
@@ -44,11 +45,17 @@ public class Cup : Pickupable {
 
     void FillCup(Pickupable heldItem)
     {
-        if (heldItem.GetComponent<MilkCarton>())
+        if (heldItem.GetComponent<Milk>())
         {
             // modify model to have milk inside of it
             Debug.Log("Cup filled with Milk");
             currentLiquid = Liquid.Milk;
+        }
+        else if (heldItem.GetComponent<Water>())
+        {
+            // modify model to have water inside of it
+            Debug.Log("Cup filled with Water");
+            currentLiquid = Liquid.Water;
         }
     }
 
