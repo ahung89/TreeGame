@@ -15,7 +15,9 @@ public class PlayerInput : MonoBehaviour {
 
 	void Start () {
         movement = GetComponent<Movement>();
-	}
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 	
 	void Update () {
         float forward = Input.GetAxisRaw("Vertical");

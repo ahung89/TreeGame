@@ -1081,11 +1081,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300024, guid: b6fc72290aca9c44c92ebdb014d5d281, type: 3}
---- !u!1 &1646167169 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1876503615241438, guid: 927478c756783074186ec42d1b2c5db9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965316236}
 --- !u!1 &1677783848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100010, guid: b6fc72290aca9c44c92ebdb014d5d281,
@@ -1371,44 +1366,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114865405415518678, guid: 927478c756783074186ec42d1b2c5db9,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1646167169}
-    - target: {fileID: 114394139748605600, guid: 927478c756783074186ec42d1b2c5db9,
-        type: 2}
-      propertyPath: lookRotationEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UpdateNearestPickup
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023088946289654, guid: 927478c756783074186ec42d1b2c5db9, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114394139748605600, guid: 927478c756783074186ec42d1b2c5db9,
-        type: 2}
-      propertyPath: lookRotationEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateNearestInteractable
-      objectReference: {fileID: 0}
-    - target: {fileID: 114856422357251508, guid: 927478c756783074186ec42d1b2c5db9,
-        type: 2}
-      propertyPath: pickupHolder
-      value: 
-      objectReference: {fileID: 2094776093}
-    - target: {fileID: 114865405415518678, guid: 927478c756783074186ec42d1b2c5db9,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 927478c756783074186ec42d1b2c5db9, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &2094776093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114639528747242078, guid: 927478c756783074186ec42d1b2c5db9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965316236}
-  m_Script: {fileID: 11500000, guid: 05aa865265b2f8443b08a04660f508bf, type: 3}
 --- !u!1001 &2098606532
 Prefab:
   m_ObjectHideFlags: 0
