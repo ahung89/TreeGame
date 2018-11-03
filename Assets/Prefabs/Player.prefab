@@ -294,6 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMat: {fileID: 2100000, guid: 6063b6e4705bb2c4fa3226a867fc2164, type: 2}
+  preOutlineBuffer: {fileID: 0}
+  preOutlineDepthBuffer: {fileID: 0}
 --- !u!114 &114363513428651036
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -40,6 +40,7 @@ public class PickupHolder : MonoBehaviour {
     {
         pickupable.Pickup(holdPoint.position, transform);
         heldItem = pickupable;
+        OutlineManager.Instance.UnapplyOutline(pickupable.gameObject);
     }
 
     void DropItem()

@@ -61,7 +61,13 @@ public class InteractionDetector : MonoBehaviour {
                 OutlineManager.Instance.UnapplyOutline(nearestInteractable.gameObject);
             }
 
-            OutlineManager.Instance.ApplyOutline(interactablesInRange[0].gameObject);
+            Pickupable pickup = interactablesInRange[0].GetComponent<Pickupable>();
+
+            // don't highlight pickupables if you're already holding something
+            if (!(pickup && pickupHolder.GetHeldItem()))
+            {
+                OutlineManager.Instance.ApplyOutline(interactablesInRange[0].gameObject);
+            }
             nearestInteractable = interactablesInRange[0];
         }
     }
