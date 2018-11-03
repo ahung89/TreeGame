@@ -32,9 +32,15 @@ public class InteractionDetector : MonoBehaviour {
         }
     }
 
+    public void HandleMouseTurn()
+    {
+        Utils.SortByAngleFromPlayer(nearbyInteractibles, player);
+    }
+
     public void PerformInteractions()
     {
-        SortInteractables();
+        //SortInteractables();
+        Utils.SortByAngleFromPlayer(nearbyInteractibles, player);
 
         if (nearbyInteractibles.Count > 0)
         {
@@ -50,15 +56,5 @@ public class InteractionDetector : MonoBehaviour {
                 }
             }
         }
-    }
-
-    void SortInteractables()
-    {
-        nearbyInteractibles.Sort((a, b) =>
-        {
-            float angleBetweenForwardA = Vector3.Angle(player.transform.forward, a.transform.position - player.transform.position);
-            float angleBetweenForwardB = Vector3.Angle(player.transform.forward, b.transform.position - player.transform.position);
-            return angleBetweenForwardA.CompareTo(angleBetweenForwardB);
-        });
     }
 }

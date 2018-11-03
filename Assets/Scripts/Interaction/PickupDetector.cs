@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class PickupDetector : MonoBehaviour {
 
-    private HashSet<Pickupable> pickupsInRange = new HashSet<Pickupable>();
+    public GameObject player;
+    private List<Pickupable> pickupsInRange = new List<Pickupable>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +24,12 @@ public class PickupDetector : MonoBehaviour {
         }
     }
 
-    public HashSet<Pickupable> GetPickupsInRange()
+    public void HandleMouseTurn()
+    {
+        Utils.SortByAngleFromPlayer(pickupsInRange, player);
+    }
+
+    public List<Pickupable> GetPickupsInRange()
     {
         return pickupsInRange;
     }
