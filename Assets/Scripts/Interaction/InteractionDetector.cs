@@ -12,7 +12,7 @@ public class InteractionDetector : MonoBehaviour {
     {
         Interactable interactable = other.GetComponent<Interactable>();
         
-        if (interactable)
+        if (interactable != null && interactable.CanInteractWith(pickupHolder.GetHeldItem()))
         {
             interactablesInRange.Add(interactable);
             UpdateNearestInteractable();
