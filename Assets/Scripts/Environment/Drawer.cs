@@ -67,5 +67,7 @@ public class Drawer : Interactable {
         {
             StartCoroutine(Close());
         }
+
+        StopInteracting(); // this interaction is instantaneous
     }
 }
