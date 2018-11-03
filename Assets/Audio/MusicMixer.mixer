@@ -21,6 +21,10 @@ AudioMixerController:
     name: Vol2
   - guid: 3817bb689948d1b4690b9d03a8d81f2f
     name: Vol3
+  - guid: 000ed3c38e56b0748b8af61161d9d108
+    name: Vol4
+  - guid: 907f2d1c167ba534c8dddad204877e33
+    name: Vol5
   m_AudioMixerGroupViews:
   - guids:
     - 042a4102ab47b384285e39c2e4cb3474
@@ -77,7 +81,9 @@ AudioMixerSnapshotController:
   m_SnapshotID: 710ba817ba647774da5a343d899bacd4
   m_FloatValues:
     9a4a30823fc4d8644a137cf025b6741b: -80
+    000ed3c38e56b0748b8af61161d9d108: -80
     3817bb689948d1b4690b9d03a8d81f2f: -80
+    907f2d1c167ba534c8dddad204877e33: -80
   m_TransitionOverrides: {}
 --- !u!243 &243604326902000568
 AudioMixerGroupController:
