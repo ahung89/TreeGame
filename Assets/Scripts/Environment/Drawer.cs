@@ -9,7 +9,7 @@ public class Drawer : Interactable {
 
     bool isOpen;
     Vector3 closedPosition;
-    Vector3 openedPosition;
+    public Vector3 openPosition;
     Rigidbody rb;
 
     private void Awake()
@@ -21,7 +21,37 @@ public class Drawer : Interactable {
     private void Update()
     {
         // put this in update so we can tweak it in inspector
-        openedPosition = closedPosition + openExtendVector;
+        openPosition = closedPosition + openExtendVector;
+    }
+
+    IEnumerator Open()
+    {
+        float totalDistance = openExtendVector.magnitude;
+        float movedDistance = 0;
+
+        while (movedDistance < totalDistance && isOpen)
+        {
+            float accumDistance = Mathf.Min((openPosition - transform.position).magnitude,
+                openExtendVector.magnitude * Time.deltaTime / openCloseDuration);
+            rb.MovePosition(transform.position + accumDistance * openExtendVector.normalized);
+            movedDistance += accumDistance;
+            yield return null;
+        }
+    }
+
+    IEnumerator Close()
+    {
+        float totalDistance = openExtendVector.magnitude;
+        float movedDistance = 0;
+
+        while (movedDistance < totalDistance && !isOpen)
+        {
+            float accumDistance = Mathf.Min((openPosition - transform.position).magnitude,
+                openExtendVector.magnitude * Time.deltaTime / openCloseDuration);
+            rb.MovePosition(transform.position - accumDistance * openExtendVector.normalized);
+            movedDistance += accumDistance;
+            yield return null;
+        }
     }
 
     public override void Interact(Pickupable heldItem)
@@ -31,11 +61,11 @@ public class Drawer : Interactable {
 
         if (isOpen)
         {
-            rb.MovePosition(openedPosition);
+            StartCoroutine(Open());
         }
         else
         {
-            rb.MovePosition(closedPosition);
+            StartCoroutine(Close());
         }
     }
 }
