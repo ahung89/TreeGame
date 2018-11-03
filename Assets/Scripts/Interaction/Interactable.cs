@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour {
         return isInteracting;
     }
 
-    public virtual void StartInteracting(Pickupable heldItem)
+    public virtual void Interact(Pickupable heldItem)
     {
         isInteracting = true;
     }

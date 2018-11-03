@@ -46,7 +46,7 @@ public class InteractionDetector : MonoBehaviour {
                 }
                 else if (interactable == nearbyInteractibles[0])
                 {
-                    interactable.StartInteracting(pickupHolder.GetHeldItem());
+                    interactable.Interact(pickupHolder.GetHeldItem());
                 }
             }
         }

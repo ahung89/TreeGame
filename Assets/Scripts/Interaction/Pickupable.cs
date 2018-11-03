@@ -9,6 +9,7 @@ public class Pickupable : MonoBehaviour {
 
 	void Awake () {
         rb = GetComponent<Rigidbody>();
+        //OutlineManager.Instance.ApplyOutline(gameObject);
 	}
 
     public void Pickup(Vector3 holdPoint, Transform parent)
