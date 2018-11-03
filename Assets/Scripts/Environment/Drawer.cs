@@ -9,7 +9,7 @@ public class Drawer : Interactable {
 
     bool isOpen;
     Vector3 closedPosition;
-    public Vector3 openPosition;
+    Vector3 openPosition;
     Rigidbody rb;
 
     private void Awake()
