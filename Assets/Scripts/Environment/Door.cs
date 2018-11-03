@@ -5,8 +5,9 @@ using UnityEngine;
 public class Door : Interactable {
 
     public float rotationDuration;
+    public float rotationAmount = 90;
 
-    bool isOpen;
+    bool isOpen = false;
     Quaternion closedRotation;
     Quaternion openRotation;
     Rigidbody rb;
@@ -14,16 +15,36 @@ public class Door : Interactable {
     private void Awake()
     {
         closedRotation = transform.rotation;
+        openRotation = closedRotation * Quaternion.AngleAxis(rotationAmount, Vector3.up);
+        rb = GetComponent<Rigidbody>();
     }
 
     IEnumerator Open()
     {
-        yield return null;
+        float accumAngle = 0;
+
+        while (accumAngle < rotationAmount && isOpen)
+        {
+            float incrAngle = Mathf.Min(Quaternion.Angle(rb.rotation, openRotation),
+                rotationAmount * Time.deltaTime / rotationDuration);
+            rb.MoveRotation(rb.rotation * Quaternion.AngleAxis(incrAngle, Vector3.up));
+            accumAngle += incrAngle;
+            yield return null;
+        }
     }
 
     IEnumerator Close()
     {
-        yield return null;
+        float accumAngle = 0;
+
+        while (accumAngle < rotationAmount && !isOpen)
+        {
+            float incrAngle = Mathf.Min(Quaternion.Angle(rb.rotation, closedRotation),
+                rotationAmount * Time.deltaTime / rotationDuration);
+            rb.MoveRotation(rb.rotation * Quaternion.AngleAxis(-incrAngle, Vector3.up));
+            accumAngle += incrAngle;
+            yield return null;
+        }
     }
 
     public override void Interact(Pickupable heldItem)
@@ -33,11 +54,11 @@ public class Door : Interactable {
 
         if (isOpen)
         {
-
+            StartCoroutine(Open());
         }
         else
         {
-
+            StartCoroutine(Close());
         }
     }
 }

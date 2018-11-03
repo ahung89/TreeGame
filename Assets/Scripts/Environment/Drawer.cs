@@ -42,14 +42,14 @@ public class Drawer : Interactable {
     IEnumerator Close()
     {
         float totalDistance = openExtendVector.magnitude;
-        float movedDistance = 0;
+        float accumDistance = 0;
 
-        while (movedDistance < totalDistance && !isOpen)
+        while (accumDistance < totalDistance && !isOpen)
         {
-            float accumDistance = Mathf.Min((openPosition - transform.position).magnitude,
+            float incrDistance = Mathf.Min((openPosition - rb.position).magnitude,
                 openExtendVector.magnitude * Time.deltaTime / openCloseDuration);
-            rb.MovePosition(transform.position - accumDistance * openExtendVector.normalized);
-            movedDistance += accumDistance;
+            rb.MovePosition(rb.position - incrDistance * openExtendVector.normalized);
+            accumDistance += incrDistance;
             yield return null;
         }
     }
