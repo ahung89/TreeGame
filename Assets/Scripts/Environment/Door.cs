@@ -12,7 +12,7 @@ public class Door : Interactable {
     public AudioClip openAudio;
     public AudioClip closeAudio;
 
-    bool isOpen = false;
+    public bool isOpen = false;
     float closedAngle;
     float openAngle;
     float currentAngle;
