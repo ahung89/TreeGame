@@ -90,6 +90,8 @@ public class Tree : Interactable
                 }
             }
 
+            // Fire interaction is handled at the fireplace
+
             // Handle interactions with the Flute
             // if (heldItem.GetComponent<Flute>())
         }
