@@ -71,8 +71,14 @@ public class InteractionDetector : MonoBehaviour {
             // don't highlight pickupables if you're already holding something
             //if (!(pickup && pickupHolder.GetHeldItem()))
             //{
-                OutlineManager.Instance.ApplyOutline(interactablesInRange[0].gameObject);
+            //    OutlineManager.Instance.ApplyOutline(interactablesInRange[0].gameObject);
             //}
+
+            // Don't highlight interactable if the currently held object can't be used with it
+            if (interactablesInRange[0].CanInteractWith(pickupHolder.GetHeldItem()))
+            {
+                OutlineManager.Instance.ApplyOutline(interactablesInRange[0].gameObject);
+            }
 
             nearestInteractable = interactablesInRange[0];
         }

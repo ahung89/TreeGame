@@ -22,27 +22,35 @@ public class Tree : Interactable
         
         if (heldItem)
         {
+            // Handle interactions with the Cup
             Cup cup = heldItem.GetComponent<Cup>();
-            if (cup)
+            if (cup && cup.currentLiquid == Cup.Liquid.Milk)
             {
-                if (cup.currentLiquid == Cup.Liquid.Milk)
+                if (!SequenceTracker.Instance.milkConsumed)
                 {
                     SequenceTracker.Instance.milkConsumed = true;
-
                     // elicit a positive reaction
                     Debug.Log("Mmm, Milk is good for strong branches!");
                     return false; // No need to try picking up or dropping after this interation
                 }
+                else
+                {
+                    Debug.Log("Uh uh... (Already had milk)");
+                    return false; // No need to try picking up or dropping after this interation
+                }
             }
 
+            // Handle interactions with the Teddy Bear
             if (heldItem.GetComponent<TeddyBear>())
             {
-                if (SequenceTracker.Instance.milkConsumed && !SequenceTracker.Instance.teddyBearProvided)
+                if (SequenceTracker.Instance.milkConsumed && 
+                    !SequenceTracker.Instance.teddyBearProvided)
                 {
+                    SequenceTracker.Instance.teddyBearProvided = true;
                     Debug.Log("Aww, snuggle time!");
-                    heldItem.Drop();
+                    // elicit a positive reaction
                     heldItem.transform.position = bearPlacement;
-                    return false; // No need to try picking up or dropping after this interation
+                    return true; // The Teddy Bear SHOULD be dropped after this interation
                 }
                 else if (SequenceTracker.Instance.teddyBearProvided)
                 {
@@ -56,6 +64,34 @@ public class Tree : Interactable
                     return false; // No need to try picking up or dropping after this interation
                 }
             }
+
+            // Handle interactions with the Childen's Book
+            if (heldItem.GetComponent <Book>())
+            {
+                if (SequenceTracker.Instance.milkConsumed && 
+                    SequenceTracker.Instance.teddyBearProvided &&
+                    !SequenceTracker.Instance.bookRead)
+                {
+                    SequenceTracker.Instance.bookRead = true;
+                    Debug.Log("Ahh, what a lovely story");
+                    // elicit a positive reaction
+                    return false; // No need to try picking up or dropping after this interation
+                }
+                else if (SequenceTracker.Instance.teddyBearProvided)
+                {
+                    // Should this even happen? Bear could be made non-interactable if already placed
+                    Debug.Log("Been there, done that (already had book read");
+                    return false; // No need to try picking up or dropping after this interation
+                }
+                else
+                {
+                    Debug.Log("Nah, not yet");
+                    return false; // No need to try picking up or dropping after this interation
+                }
+            }
+
+            // Handle interactions with the Flute
+            // if (heldItem.GetComponent<Flute>())
         }
 
         Debug.Log("Nope, don't want that");

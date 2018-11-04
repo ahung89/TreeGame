@@ -21,5 +21,5 @@ public class SequenceTracker : MonoBehaviour
     public bool teddyBearProvided = false;
     public bool bookRead = false;
     public bool fireOut = false;
-    // bool flutePlayed = false; // Will this be necessary? Maybe initiate a Coroutine on successfully playing the flute
+    // public bool flutePlayed = false; // Will this be necessary? Maybe initiate a Coroutine on successfully playing the flute
 }
