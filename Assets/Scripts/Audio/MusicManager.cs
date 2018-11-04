@@ -23,7 +23,7 @@ public class MusicManager : MonoBehaviour {
     }
 
     void Update () {
-        if (lerp < 1)
+        if (lerp < 1 && layer < 5)
         {
             lerp = (Time.time - fadeStartTime) / fadeInTime;
             mixer.SetFloat("Vol" + layer, Mathf.Lerp(-80.0f, 0.0f, lerp));
