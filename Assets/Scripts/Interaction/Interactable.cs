@@ -3,6 +3,7 @@
 public class Interactable : MonoBehaviour {
 
     bool isInteracting = false;
+    Renderer renderer;
 
     public bool IsInteracting()
     {
@@ -26,5 +27,15 @@ public class Interactable : MonoBehaviour {
     public virtual void StopInteracting()
     {
         isInteracting = false;
+    }
+
+    public bool IsVisible()
+    {
+        if (!renderer)
+        {
+            renderer = GetComponentInChildren<Renderer>();
+        }
+
+        return renderer.isVisible;
     }
 }

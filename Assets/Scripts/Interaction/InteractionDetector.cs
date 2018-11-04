@@ -5,8 +5,14 @@ public class InteractionDetector : MonoBehaviour {
     public PickupHolder pickupHolder;
     public GameObject player;
 
-    List<Interactable> interactablesInRange = new List<Interactable>();
+    public List<Interactable> interactablesInRange = new List<Interactable>();
     Interactable nearestInteractable;
+    Camera cam;
+
+    private void Awake()
+    {
+        cam = FindObjectOfType<Camera>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,7 +23,7 @@ public class InteractionDetector : MonoBehaviour {
         // Debug.Log("iteractable: " + interactable);
         // Debug.Log("CanInteractWith: " + interactable.CanInteractWith(pickupHolder.GetHeldItem()));
 
-        if (interactable != null && interactable.CanInteractWith(pickupHolder.GetHeldItem()))
+        if (interactable != null && interactable.IsVisible() && interactable.CanInteractWith(pickupHolder.GetHeldItem()))
         {
             interactablesInRange.Add(interactable);
             UpdateNearestInteractable();
@@ -48,7 +54,7 @@ public class InteractionDetector : MonoBehaviour {
 
     public void UpdateNearestInteractable()
     {
-        Utils.SortByAngleFromPlayer(interactablesInRange, player);
+        Utils.SortByAngleFromPlayer(interactablesInRange, cam);
     }
 
     private void Update()
