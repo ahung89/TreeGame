@@ -159,7 +159,8 @@ public class Tree : Interactable
         }
 
         Debug.Log("Nope, don't want that");
-        StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
+        // StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
+        StartCoroutine(PlayInteractionSounds(null, hardNegativeReaction));
         return false; // No need to try picking up or dropping after this interation
     }
 
