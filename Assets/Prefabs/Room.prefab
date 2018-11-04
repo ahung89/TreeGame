@@ -124,8 +124,8 @@ GameObject:
   - component: {fileID: 4530543042962278}
   - component: {fileID: 33447708827412722}
   - component: {fileID: 23569569433854272}
-  - component: {fileID: 64717921042110256}
   - component: {fileID: 114729466649140118}
+  - component: {fileID: 64939818112240044}
   m_Layer: 0
   m_Name: TopDrawer
   m_TagString: Untagged
@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 4640092304629962}
   - component: {fileID: 33978889810465630}
   - component: {fileID: 23088536220562488}
+  - component: {fileID: 114006491652948784}
   m_Layer: 0
   m_Name: FireplaceKnob
   m_TagString: Untagged
@@ -1677,7 +1678,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1153310364133062}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.25654283, y: 0.16073121, z: 0.7494}
+  m_LocalPosition: {x: 0.25654283, y: 0.16073121, z: 0.7517}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4589936923172010}
@@ -5214,20 +5215,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300072, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
---- !u!64 &64717921042110256
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1153310364133062}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300008, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
 --- !u!64 &64805886291269204
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -5256,6 +5243,20 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5ed2fc6a220d92640aba7070b96cb998, type: 3}
+--- !u!64 &64939818112240044
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153310364133062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300008, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
 --- !u!65 &65070990203935980
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -5460,6 +5461,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.26556617, y: 0.17319903, z: 0.059799727}
   m_Center: {x: -0.12478977, y: 0.0036433227, z: 0.025618637}
+--- !u!114 &114006491652948784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315214081183920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3083985f433cf4b9f35d45b0bf4f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireLight: {fileID: 0}
+  noiseFrequency: 2.75
+  noiseWeight: 0.65
+  defaultIntensity: 1
+  minIntensity: 0.2
+  dimmingDuration: 3
 --- !u!114 &114055693093143832
 MonoBehaviour:
   m_ObjectHideFlags: 1
