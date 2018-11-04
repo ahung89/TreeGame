@@ -50,6 +50,7 @@ public class Tree : Interactable
                     Debug.Log("Mmm, Milk is good for strong branches!");
                     StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionMilk));
                     MusicManager.Instance.AddNextLayer();
+                    cup.EmptyCup();
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else
