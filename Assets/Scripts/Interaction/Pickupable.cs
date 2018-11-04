@@ -48,15 +48,19 @@ public class Pickupable : Interactable {
 
     public void PlayTreeInteractionClip()
     {
-        PlayClip(treeInteractionClip);
+        if (treeInteractionClip) PlayClip(treeInteractionClip);
     }
 
     public bool IsPlayingClip()
     {
-        return audioSource.isPlaying;
+        if (audioSource && audioSource.clip)
+        {
+            return audioSource.isPlaying;
+        }
+        return false;
     }
 
-    protected void PlayClip(AudioClip clip)
+    public void PlayClip(AudioClip clip)
     {
         audioSource.clip = clip;
         audioSource.Play();
