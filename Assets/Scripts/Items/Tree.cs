@@ -68,7 +68,7 @@ public class Tree : Interactable
                     SequenceTracker.Instance.teddyBearProvided = true;
                     Debug.Log("Aww, snuggle time!");
                     // elicit a positive reaction
-                    //positiveReactionTeddy.Play();
+                    StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionTeddy));
                     MusicManager.Instance.AddNextLayer();
                     heldItem.transform.position = bearPlacement;
                     return true; // The Teddy Bear SHOULD be dropped after this interation
@@ -98,7 +98,7 @@ public class Tree : Interactable
                     SequenceTracker.Instance.bookRead = true;
                     Debug.Log("Ahh, what a lovely story");
                     // elicit a positive reaction
-                    //positiveReactionBook.Play();
+                    StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionBook));
                     MusicManager.Instance.AddNextLayer();
                     return false; // No need to try picking up or dropping after this interation
                 }
@@ -131,8 +131,8 @@ public class Tree : Interactable
                     SequenceTracker.Instance.flutePlayed = true;
                     Debug.Log("ZZZZZzzzzzzzzz......");
                     // elicit a positive reaction
-                    //positiveReactionFlute.Play();
-                    MusicManager.Instance.AddNextLayer();
+                    MusicManager.Instance.ToggleMusic();
+                    StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionFlute));
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else if (SequenceTracker.Instance.flutePlayed)
