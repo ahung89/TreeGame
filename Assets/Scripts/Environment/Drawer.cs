@@ -10,63 +10,25 @@ public class Drawer : Interactable {
     bool isOpen;
     Vector3 closedPosition;
     Vector3 openPosition;
-    Rigidbody rb;
+    Vector3 velocity;
 
     private void Awake()
     {
         closedPosition = transform.position;
-        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         // put this in update so we can tweak it in inspector
         openPosition = closedPosition + openExtendVector;
-    }
 
-    IEnumerator Open()
-    {
-        float totalDistance = openExtendVector.magnitude;
-        float movedDistance = 0;
-
-        while (movedDistance < totalDistance && isOpen)
-        {
-            float accumDistance = Mathf.Min((openPosition - transform.position).magnitude,
-                openExtendVector.magnitude * Time.deltaTime / openCloseDuration);
-            rb.MovePosition(transform.position + accumDistance * openExtendVector.normalized);
-            movedDistance += accumDistance;
-            yield return null;
-        }
-    }
-
-    IEnumerator Close()
-    {
-        float totalDistance = openExtendVector.magnitude;
-        float accumDistance = 0;
-
-        while (accumDistance < totalDistance && !isOpen)
-        {
-            float incrDistance = Mathf.Min((openPosition - rb.position).magnitude,
-                openExtendVector.magnitude * Time.deltaTime / openCloseDuration);
-            rb.MovePosition(rb.position - incrDistance * openExtendVector.normalized);
-            accumDistance += incrDistance;
-            yield return null;
-        }
+        gameObject.transform.position = Vector3.SmoothDamp(gameObject.transform.position, isOpen ? openPosition : closedPosition, ref velocity, openCloseDuration);
     }
 
     public override bool Interact(Pickupable heldItem)
     {
         base.Interact(heldItem);
         isOpen = !isOpen;
-
-        if (isOpen)
-        {
-            StartCoroutine(Open());
-        }
-        else
-        {
-            StartCoroutine(Close());
-        }
 
         StopInteracting(); // this interaction is instantaneous
 
