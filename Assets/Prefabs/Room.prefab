@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 33978889810465630}
   - component: {fileID: 23088536220562488}
   - component: {fileID: 114006491652948784}
+  - component: {fileID: 65735432096367932}
   m_Layer: 0
   m_Name: FireplaceKnob
   m_TagString: Untagged
@@ -5518,6 +5519,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14509107, y: 0.19277881, z: 0.022674788}
   m_Center: {x: -0.07050138, y: 0, z: 0.008590264}
+--- !u!65 &65735432096367932
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315214081183920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0117523, y: 0.011556378, z: 0.009362487}
+  m_Center: {x: 0.000047151465, y: -0.0002545847, z: -0.00000003562309}
 --- !u!65 &65770019619871886
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -5594,6 +5607,7 @@ MonoBehaviour:
   noiseWeight: 0.65
   defaultIntensity: 1
   minIntensity: 0.2
+  tree: {fileID: 0}
   dimmingDuration: 3
 --- !u!114 &114055693093143832
 MonoBehaviour:
