@@ -7,8 +7,12 @@ public class Pickupable : Interactable {
     Rigidbody rb;
     bool isHeld;
 
-	public virtual void Awake () {
+    public AudioClip treeInteractionClip;
+    private AudioSource audioSource;
+
+	void Awake () {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
 	}
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -40,5 +44,21 @@ public class Pickupable : Interactable {
     public bool IsHeld()
     {
         return isHeld;
+    }
+
+    public void PlayTreeInteractionClip()
+    {
+        PlayClip(treeInteractionClip);
+    }
+
+    public bool IsPlayingClip()
+    {
+        return audioSource.isPlaying;
+    }
+
+    protected void PlayClip(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }

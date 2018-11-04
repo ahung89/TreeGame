@@ -6,14 +6,21 @@ public class Tree : Interactable
 {
     public Vector3 bearPlacement = Vector3.zero;
 
-    public AudioSource positiveReactionMilk;
-    public AudioSource positiveReactionTeddy;
-    public AudioSource positiveReactionBook;
-    public AudioSource positiveReactionLight;
-    public AudioSource positiveReactionFlute;
+    public AudioClip positiveReactionMilk;
+    public AudioClip positiveReactionTeddy;
+    public AudioClip positiveReactionBook;
+    public AudioClip positiveReactionLight;
+    public AudioClip positiveReactionFlute;
 
-    public AudioSource softNegativeReaction;
-    public AudioSource hardNegativeReaction;
+    public AudioClip softNegativeReaction;
+    public AudioClip hardNegativeReaction;
+
+    AudioSource audioSource;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public override bool CanInteractWith(Pickupable heldItem)
     {
@@ -40,13 +47,14 @@ public class Tree : Interactable
                     SequenceTracker.Instance.milkConsumed = true;
                     // elicit a positive reaction
                     Debug.Log("Mmm, Milk is good for strong branches!");
-                    //positiveReactionMilk.Play();
+                    StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionMilk));
                     MusicManager.Instance.AddNextLayer();
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else
                 {
                     Debug.Log("Uh uh... (Already had milk)");
+                    StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
             }
@@ -69,11 +77,13 @@ public class Tree : Interactable
                 {
                     // Should this even happen? Bear could be made non-interactable if already placed
                     Debug.Log("No thanks! (Already received bear)");
+                    StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else
                 {
                     Debug.Log("Nah, not yet");
+                    StartCoroutine(PlayInteractionSounds(heldItem, softNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
             }
@@ -96,11 +106,13 @@ public class Tree : Interactable
                 {
                     // Should this even happen? Bear could be made non-interactable if already placed
                     Debug.Log("Been there, done that (already had book read");
+                    StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else
                 {
                     Debug.Log("Nah, not yet");
+                    StartCoroutine(PlayInteractionSounds(heldItem, softNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
             }
@@ -127,18 +139,32 @@ public class Tree : Interactable
                 {
                     // Could this even happen? Cinematic will have already taken place
                     Debug.Log("Deja vu all over again...");
+                    StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else
                 {
                     Debug.Log("Nah, not yet");
+                    StartCoroutine(PlayInteractionSounds(heldItem, softNegativeReaction));
                     return false; // No need to try picking up or dropping after this interation
                 }
             }
         }
 
         Debug.Log("Nope, don't want that");
+        StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
         return false; // No need to try picking up or dropping after this interation
+    }
+
+    IEnumerator PlayInteractionSounds(Pickupable pickup, AudioClip reactionSound)
+    {
+        pickup.PlayTreeInteractionClip();
+        while (pickup.IsPlayingClip())
+        {
+            yield return null;
+        }
+        audioSource.clip = reactionSound;
+        audioSource.Play();
     }
 
     private void OnDrawGizmosSelected()

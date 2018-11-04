@@ -7,13 +7,7 @@ public class Cup : Pickupable {
     public enum Liquid { Milk, Water, None }
     public Liquid currentLiquid = Liquid.None;
 
-    AudioSource audioSource;
-
-    public override void Awake()
-    {
-        base.Awake();
-        audioSource = gameObject.GetComponent<AudioSource>();
-    }
+    public AudioClip cupFillClip;
 
     public override bool CanInteractWith(Pickupable heldItem)
     {
@@ -50,9 +44,9 @@ public class Cup : Pickupable {
             {
                 if (TryFillCup(heldItem))
                 {
-                    if (!audioSource.isPlaying)
+                    if (!IsPlayingClip())
                     {
-                        audioSource.Play();
+                        PlayClip(cupFillClip);
                     }
                     return false;
                 }
