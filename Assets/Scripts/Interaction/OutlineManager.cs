@@ -39,12 +39,12 @@ public class OutlineManager : MonoBehaviour
         {
             if (ShouldApplyOutline(rend))
             {
-                if (rend.GetComponent<Collider>() != null)
-                {
-                    Debug.LogError("Your renderer and layer are on the same collider for object " + rend.gameObject
-                        + " under top-level parent object " + objectToOutline + ". Outline failed.");
-                    return;
-                }
+                //if (rend.GetComponent<Collider>() != null)
+                //{
+                //    Debug.LogError("Your renderer and layer are on the same collider for object " + rend.gameObject
+                //        + " under top-level parent object " + objectToOutline + ". Outline failed.");
+                //    return;
+                //}
 
                 cachedLayersForObject[rend] = rend.gameObject.layer;
                 rend.gameObject.layer = LayerMask.NameToLayer("Outline");
