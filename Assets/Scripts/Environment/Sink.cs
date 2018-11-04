@@ -30,7 +30,12 @@ public class Sink : Interactable
                 waterStreamRunning = true;
                 waterStreamElapsed = 0f;
             }
-            // No need to try picking up or dropping after this interation
+
+            Cup cup = heldItem.GetComponent<Cup>();
+            if (cup)
+            {
+                cup.FillCup(Cup.Liquid.Water);
+            }
         }
         return false; // No need to try picking up or dropping after this interation
     }

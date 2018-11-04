@@ -6,8 +6,12 @@ public class Cup : Pickupable {
 
     public enum Liquid { Milk, Water, None }
     public Liquid currentLiquid = Liquid.None;
-
+    public Renderer fillRenderer;
     public AudioClip cupFillClip;
+
+    public float fillAmount = .46f;
+    public Color milkColor = Color.white;
+    public Color waterColor = Color.blue;
 
     public override bool CanInteractWith(Pickupable heldItem)
     {
@@ -42,8 +46,23 @@ public class Cup : Pickupable {
 
             if (heldItem)
             {
-                if (TryFillCup(heldItem))
+                bool fillCup = false;
+                Liquid liquid = Liquid.None;
+
+                if (heldItem.GetComponent<Milk>())
                 {
+                    fillCup = true;
+                    liquid = Liquid.Milk;
+                }
+                else if (heldItem.GetComponent<Water>())
+                {
+                    fillCup = true;
+                    liquid = Liquid.Water;
+                }
+
+                if (fillCup)
+                {
+                    FillCup(liquid);
                     if (!IsPlayingClip())
                     {
                         PlayClip(cupFillClip);
@@ -55,24 +74,28 @@ public class Cup : Pickupable {
         return true;
     }
 
-    // returns whether TryFillCup was successful
-    bool TryFillCup(Pickupable heldItem)
+    public void FillCup(Liquid liquid)
     {
-        if (heldItem.GetComponent<Milk>())
+        if (liquid == Liquid.Milk)
         {
             // modify model to have milk inside of it
             Debug.Log("Cup filled with Milk");
             currentLiquid = Liquid.Milk;
-            return true;
+            FillCup(milkColor);
         }
-        else if (heldItem.GetComponent<Water>())
+        else if (liquid == Liquid.Water)
         {
             // modify model to have water inside of it
             Debug.Log("Cup filled with Water");
             currentLiquid = Liquid.Water;
-            return true;
+            FillCup(waterColor);
         }
-        return false;
+    }
+
+    void FillCup(Color col)
+    {
+        fillRenderer.material.SetColor("_TopColor", col);
+        fillRenderer.material.SetFloat("_FillAmount", fillAmount);
     }
 
     // call this from the tree object if the wrong liquid is given to the tree
@@ -80,5 +103,6 @@ public class Cup : Pickupable {
     {
         // modify model to be empty
         currentLiquid = Liquid.None;
+        fillRenderer.material.SetFloat("_FillAmount", 1);
     }
 }
