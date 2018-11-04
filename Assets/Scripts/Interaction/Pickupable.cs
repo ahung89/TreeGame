@@ -11,6 +11,11 @@ public class Pickupable : Interactable {
         rb = GetComponent<Rigidbody>();
 	}
 
+    public override bool CanInteractWith(Pickupable heldItem)
+    {
+        return !heldItem;
+    }
+
     public void Pickup(Vector3 holdPoint, Transform parent)
     {
         isHeld = true;
