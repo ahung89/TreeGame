@@ -6,11 +6,11 @@ public class MusicManager : MonoBehaviour {
     public static MusicManager Instance;
 
     public AudioMixer mixer;
-    public float fadeInTime = 2.0f;
+    public float fadeInTime = 4.0f;
 
     public bool testing = false;
 
-    private int layer = 1;
+    private int layer = 0;
     private float lerp = 1.0f;
     private float fadeStartTime = 0;
 
