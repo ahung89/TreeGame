@@ -664,17 +664,17 @@ Prefab:
     - target: {fileID: 114636349530532336, guid: a3432c57b1e177a4a871288314894a13,
         type: 2}
       propertyPath: milkConsumed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114636349530532336, guid: a3432c57b1e177a4a871288314894a13,
         type: 2}
       propertyPath: teddyBearProvided
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114636349530532336, guid: a3432c57b1e177a4a871288314894a13,
         type: 2}
       propertyPath: bookRead
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114636349530532336, guid: a3432c57b1e177a4a871288314894a13,
         type: 2}
