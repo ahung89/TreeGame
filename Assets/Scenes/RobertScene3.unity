@@ -242,30 +242,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 320778271573356258, guid: 44477c675ce4e17489b4b9385198797a,
-        type: 2}
-      propertyPath: m_SceneBindings.Array.data[2].value
-      value: 
-      objectReference: {fileID: 326160071}
     - target: {fileID: 114006491652948784, guid: 44477c675ce4e17489b4b9385198797a,
         type: 2}
       propertyPath: fireLight
       value: 
       objectReference: {fileID: 1165720256}
-    - target: {fileID: 65563954430317392, guid: 44477c675ce4e17489b4b9385198797a,
+    - target: {fileID: 320778271573356258, guid: 44477c675ce4e17489b4b9385198797a,
         type: 2}
-      propertyPath: m_Center.y
-      value: 0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 65563954430317392, guid: 44477c675ce4e17489b4b9385198797a,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728725871350530, guid: 44477c675ce4e17489b4b9385198797a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 326160071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44477c675ce4e17489b4b9385198797a, type: 2}
   m_IsPrefabAsset: 0
@@ -524,7 +510,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4162214799824468, guid: a3432c57b1e177a4a871288314894a13, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.8995
+      value: 0.897
       objectReference: {fileID: 0}
     - target: {fileID: 4162214799824468, guid: a3432c57b1e177a4a871288314894a13, type: 2}
       propertyPath: m_LocalPosition.z
@@ -571,7 +557,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4918337708996818, guid: 734a1a1729c2d3f4eac7d40ca75d244e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.021
+      value: 1.042
       objectReference: {fileID: 0}
     - target: {fileID: 4918337708996818, guid: 734a1a1729c2d3f4eac7d40ca75d244e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -641,7 +627,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1604875861051866, guid: 5e3d73a74b991a043946aa2164c78e32, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4723321234071538, guid: 5e3d73a74b991a043946aa2164c78e32, type: 2}
       propertyPath: m_RootOrder
