@@ -24,6 +24,8 @@ AudioMixerController:
     name: Vol3
   - guid: 000ed3c38e56b0748b8af61161d9d108
     name: Vol4
+  - guid: 8294493edc1b2a547a067ff219180ef2
+    name: MasterVol
   m_AudioMixerGroupViews:
   - guids:
     - 042a4102ab47b384285e39c2e4cb3474
