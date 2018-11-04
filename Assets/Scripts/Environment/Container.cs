@@ -9,6 +9,14 @@ public class Container : MonoBehaviour {
     BoxCollider bc;
 
     static List<Container> containers;
+    static List<Container> GetContainers()
+    {
+        if (containers == null)
+        {
+            containers = new List<Container>(FindObjectsOfType<Container>());
+        }
+        return containers;
+    }
 
     private void Awake()
     {
@@ -22,7 +30,7 @@ public class Container : MonoBehaviour {
 
     public static bool CheckContained(GameObject go)
     {
-        foreach (Container c in containers)
+        foreach (Container c in GetContainers())
         {
             if (c.Contains(go))
             {

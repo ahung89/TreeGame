@@ -18,8 +18,6 @@ public class Tree : Interactable
 
     AudioSource audioSource;
 
-    public PlayableDirector cutsceneDirector;
-
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -194,7 +192,7 @@ public class Tree : Interactable
             yield return null;
         }
         MusicManager.Instance.PlayFinale();
-        cutsceneDirector.Play();
+        CinematicController.Instance.StartCinematic();
     }
 
     public void PlayClip(AudioClip clip)
