@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Tree : Interactable
 {
@@ -16,6 +17,8 @@ public class Tree : Interactable
     public AudioClip hardNegativeReaction;
 
     AudioSource audioSource;
+
+    public PlayableDirector cutsceneDirector;
 
     void Awake()
     {
@@ -131,8 +134,7 @@ public class Tree : Interactable
                     SequenceTracker.Instance.flutePlayed = true;
                     Debug.Log("ZZZZZzzzzzzzzz......");
                     // elicit a positive reaction
-                    MusicManager.Instance.ToggleMusic();
-                    StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionFlute));
+                    StartCoroutine(TriggerEndCinematic(heldItem, positiveReactionFlute));
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else if (SequenceTracker.Instance.flutePlayed)
@@ -165,6 +167,24 @@ public class Tree : Interactable
         }
         audioSource.clip = reactionSound;
         audioSource.Play();
+    }
+
+    IEnumerator TriggerEndCinematic(Pickupable pickup, AudioClip reactionSound)
+    {
+        MusicManager.Instance.ToggleGameLoop();
+        pickup.PlayTreeInteractionClip();
+        while (pickup.IsPlayingClip())
+        {
+            yield return null;
+        }
+        audioSource.clip = reactionSound;
+        audioSource.Play();
+        while (audioSource.isPlaying)
+        {
+            yield return null;
+        }
+        MusicManager.Instance.PlayFinale();
+        cutsceneDirector.Play();
     }
 
     public void PlayClip(AudioClip clip)

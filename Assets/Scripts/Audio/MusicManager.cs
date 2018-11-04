@@ -5,10 +5,12 @@ public class MusicManager : MonoBehaviour {
 
     public static MusicManager Instance;
 
+    public AudioSource finaleSource;
+
     public AudioMixer mixer;
     public float fadeInTime = 4.0f;
     public float masterVolumeFadeTime = 2.0f;
-    public bool musicOn = true;
+    public bool gameLoopOn = true;
 
     public bool testing = false;
 
@@ -33,23 +35,23 @@ public class MusicManager : MonoBehaviour {
             mixer.SetFloat("Vol" + layer, Mathf.Lerp(-80.0f, 0.0f, lerp));
         }
         
-        var masterVolume = Mathf.SmoothStep(musicOn ? -80 : 0, musicOn ? 0 : -80, (Time.time - masterFadeStartTime) / masterVolumeFadeTime);
-        mixer.SetFloat("MasterVol", masterVolume);
+        var masterVolume = Mathf.SmoothStep(gameLoopOn ? -80 : 0, gameLoopOn ? 0 : -80, (Time.time - masterFadeStartTime) / masterVolumeFadeTime);
+        mixer.SetFloat("GameLoopVol", masterVolume);
 
         if (testing)
         {
             mixer.SetFloat("Vol1", 0.0f);
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                ToggleMusic();
+                PlayFinale();
             }
         }
 	}
-
-    public void ToggleMusic()
+    
+    public void ToggleGameLoop()
     {
         masterFadeStartTime = Time.time;
-        musicOn = !musicOn;
+        gameLoopOn = !gameLoopOn;
     }
 
     public void AddNextLayer()
@@ -57,5 +59,11 @@ public class MusicManager : MonoBehaviour {
         layer++;
         lerp = 0.0f;
         fadeStartTime = Time.time;
+    }
+
+    public void PlayFinale()
+    {
+        gameLoopOn = false; // ensure loop is off (but it already should be)
+        finaleSource.Play();
     }
 }
