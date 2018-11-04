@@ -11,7 +11,7 @@ public class Drawer : Interactable {
     public AudioClip openAudio;
     public AudioClip closeAudio;
 
-    bool isOpen;
+    public bool isOpen;
     Vector3 closedPosition;
     Vector3 openPosition;
     Vector3 velocity;

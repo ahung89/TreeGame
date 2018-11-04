@@ -23,7 +23,8 @@ public class InteractionDetector : MonoBehaviour {
         // Debug.Log("iteractable: " + interactable);
         // Debug.Log("CanInteractWith: " + interactable.CanInteractWith(pickupHolder.GetHeldItem()));
 
-        if (interactable != null && interactable.IsVisible() && interactable.CanInteractWith(pickupHolder.GetHeldItem()))
+        if (interactable != null && !(interactable.GetComponent<Pickupable>() && Container.CheckContained(interactable.gameObject))
+            && interactable.CanInteractWith(pickupHolder.GetHeldItem()))
         {
             interactablesInRange.Add(interactable);
             UpdateNearestInteractable();
