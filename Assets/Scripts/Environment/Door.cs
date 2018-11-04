@@ -8,6 +8,10 @@ public class Door : Interactable {
     public float rotationAmount = 90;
     public bool isVerticalHinge = true;
 
+    AudioSource audioSource;
+    public AudioClip openAudio;
+    public AudioClip closeAudio;
+
     bool isOpen = false;
     float closedAngle;
     float openAngle;
@@ -21,6 +25,7 @@ public class Door : Interactable {
         currentAngle = Vector3.Dot(RotationAxis, transform.rotation.eulerAngles);
         closedAngle = currentAngle;
         openAngle = closedAngle + rotationAmount;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -33,6 +38,19 @@ public class Door : Interactable {
     {
         base.Interact(heldItem);
         isOpen = !isOpen;
+
+        if (isOpen)
+        {
+            audioSource.Stop();
+            audioSource.clip = openAudio;
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
+            audioSource.clip = closeAudio;
+            audioSource.Play();
+        }
 
         StopInteracting(); // this interaction is instantaneous
 
