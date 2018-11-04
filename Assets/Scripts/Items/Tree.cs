@@ -167,6 +167,12 @@ public class Tree : Interactable
         audioSource.Play();
     }
 
+    public void PlayClip(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.magenta;

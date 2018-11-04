@@ -16,9 +16,12 @@ public class GasFireValve : Interactable
     private bool isDimmed = false;
     private float dimmingElapsed = 0f;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
         fireLight.intensity = defaultIntensity;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -38,18 +41,20 @@ public class GasFireValve : Interactable
             SequenceTracker.Instance.fireOut = true;
             Debug.Log("Yaawwwnnnn... Getting sleepy.");
             // elicit a positive reaction
-            //tree.positiveReactionLight.Play();
+            StartCoroutine(PlayInteractionSounds());
             MusicManager.Instance.AddNextLayer();
             return false; // Do not try to pick up or drop item after this interaction
         }
         else if (SequenceTracker.Instance.fireOut)
         {
             Debug.Log("DARK... MUST HAVE DARK! (already put out fire)");
+            tree.PlayClip(tree.hardNegativeReaction);
             return false; // Do not try to pick up or drop item after this interaction
         }
         else
         {
             Debug.Log("Nah, not yet");
+            tree.PlayClip(tree.softNegativeReaction);
             return false; // No need to try picking up or dropping after this interation
         }
     }
@@ -83,5 +88,13 @@ public class GasFireValve : Interactable
         }
     }
 
-
+    IEnumerator PlayInteractionSounds()
+    {
+        audioSource.Play();
+        while (audioSource.isPlaying)
+        {
+            yield return null;
+        }
+        tree.PlayClip(tree.positiveReactionLight);
+    }
 }

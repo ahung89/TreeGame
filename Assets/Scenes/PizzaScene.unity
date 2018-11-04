@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &43464292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114145275481932716, guid: a3432c57b1e177a4a871288314894a13,
+    type: 2}
+  m_PrefabInternal: {fileID: 2048016834}
+  m_Script: {fileID: 11500000, guid: c39d4373ce669004792237d42bc61963, type: 3}
 --- !u!1001 &113334866
 Prefab:
   m_ObjectHideFlags: 0
@@ -431,6 +437,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab2fb098cec20444c8124dbfdc97f7ba, type: 2}
   m_IsPrefabAsset: 0
+--- !u!108 &1345580327 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108711360670313578, guid: be8dcd8a039ace448ad2663fa298b936,
+    type: 2}
+  m_PrefabInternal: {fileID: 1965448356}
 --- !u!1001 &1642418675
 Prefab:
   m_ObjectHideFlags: 0
@@ -512,6 +523,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114006491652948784, guid: 44477c675ce4e17489b4b9385198797a,
+        type: 2}
+      propertyPath: fireLight
+      value: 
+      objectReference: {fileID: 1345580327}
+    - target: {fileID: 114006491652948784, guid: 44477c675ce4e17489b4b9385198797a,
+        type: 2}
+      propertyPath: tree
+      value: 
+      objectReference: {fileID: 43464292}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44477c675ce4e17489b4b9385198797a, type: 2}
   m_IsPrefabAsset: 0
