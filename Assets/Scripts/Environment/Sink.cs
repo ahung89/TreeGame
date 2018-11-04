@@ -9,6 +9,8 @@ public class Sink : Interactable
 
     public GameObject waterStream;
 
+    public AudioSource watterRunningAudioSource;
+
     private void Awake()
     {
         waterStream.SetActive(false);
@@ -29,6 +31,12 @@ public class Sink : Interactable
                 waterStream.SetActive(true);
                 waterStreamRunning = true;
                 waterStreamElapsed = 0f;
+            }
+
+            // Play water running sound
+            if (watterRunningAudioSource && watterRunningAudioSource.clip && !watterRunningAudioSource.isPlaying)
+            {
+                watterRunningAudioSource.Play();
             }
 
             Cup cup = heldItem.GetComponent<Cup>();
