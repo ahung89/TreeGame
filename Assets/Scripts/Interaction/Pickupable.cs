@@ -7,7 +7,7 @@ public class Pickupable : Interactable {
     Rigidbody rb;
     bool isHeld;
 
-	void Awake () {
+	public virtual void Awake () {
         rb = GetComponent<Rigidbody>();
 	}
 
