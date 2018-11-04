@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GasFireValve : Interactable
 {
@@ -18,10 +19,28 @@ public class GasFireValve : Interactable
 
     private AudioSource audioSource;
 
+    public GameObject fireParticleEffect;
+    private List<float> particleStartSize = new List<float>();
+    private float particleEmissionRate;
+
     private void Awake()
     {
         fireLight.intensity = defaultIntensity;
         audioSource = GetComponent<AudioSource>();
+
+        for (int i = 0; i < fireParticleEffect.transform.childCount; i++)
+        {
+            ParticleSystem particles = fireParticleEffect.transform.GetChild(i).GetComponent<ParticleSystem>();
+            if (particles.main.startSize.mode == ParticleSystemCurveMode.Constant)
+            {
+                particleStartSize.Add(particles.main.startSize.constant);
+            }
+            else
+            {
+                // particleStartSize.Add(particles.main.startSize.constantMax);
+                particleEmissionRate = particles.emissionRate;
+            }
+        }
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -67,6 +86,21 @@ public class GasFireValve : Interactable
             dimmingElapsed = Mathf.Clamp(dimmingElapsed + Time.deltaTime, 0f, dimmingDuration);
             // currentIntensity = minIntensity + (defaultIntensity - minIntensity) * (1 - Mathf.Pow(dimmingElapsed / dimmingDuration, 2f));
             currentIntensity = minIntensity + (defaultIntensity - minIntensity) * Mathf.Cos((Mathf.PI * dimmingElapsed) / (dimmingDuration * 2f));
+
+            // Handle diminishing the particle effect's start sizes
+            for (int i = 0; i < fireParticleEffect.transform.childCount; i++)
+            {
+                ParticleSystem particles = fireParticleEffect.transform.GetChild(i).GetComponent<ParticleSystem>();
+                if (particles.main.startSize.mode == ParticleSystemCurveMode.Constant)
+                {
+                    particles.startSize = particleStartSize[i] * Mathf.Clamp01(1 - (dimmingElapsed / dimmingDuration) + 0.15f);
+                }
+                else
+                {
+                    // particles.startSize = particleStartSize[i] * (1 - (dimmingElapsed / dimmingDuration));
+                    particles.emissionRate = particleEmissionRate * Mathf.Clamp01(1 - (dimmingElapsed / dimmingDuration) + 0.15f);
+                }
+            }
         }
         else if (isDimmed)
         {
