@@ -69,7 +69,7 @@ Material:
     - _Degrees: 65
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FillAmount: 0.46
+    - _FillAmount: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -81,7 +81,7 @@ Material:
     - _Offset3: 0
     - _Parallax: 0.02
     - _Phase: 0.189
-    - _Rim: 0.0078
+    - _Rim: 0
     - _Rim2: 1.72
     - _RimPower: 1.67
     - _Slosh: 0
@@ -102,6 +102,6 @@ Material:
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SideColor: {r: 0.5955882, g: 1, b: 0.81592286, a: 1}
-    - _Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _Tint: {r: 1, g: 1, b: 1, a: 0}
     - _TopColor: {r: 1, g: 1, b: 1, a: 1}
     - _Vector: {r: 1, g: 1, b: 1, a: 1}

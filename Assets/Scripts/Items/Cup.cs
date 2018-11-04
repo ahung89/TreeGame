@@ -6,8 +6,12 @@ public class Cup : Pickupable {
 
     public enum Liquid { Milk, Water, None }
     public Liquid currentLiquid = Liquid.None;
-
+    public Renderer fillRenderer;
     public AudioClip cupFillClip;
+
+    public float fillAmount = .46f;
+    public Color milkColor = Color.white;
+    public Color waterColor = Color.blue;
 
     public override bool CanInteractWith(Pickupable heldItem)
     {
@@ -63,6 +67,7 @@ public class Cup : Pickupable {
             // modify model to have milk inside of it
             Debug.Log("Cup filled with Milk");
             currentLiquid = Liquid.Milk;
+            FillCup(milkColor);
             return true;
         }
         else if (heldItem.GetComponent<Water>())
@@ -70,9 +75,16 @@ public class Cup : Pickupable {
             // modify model to have water inside of it
             Debug.Log("Cup filled with Water");
             currentLiquid = Liquid.Water;
+            FillCup(waterColor);
             return true;
         }
         return false;
+    }
+
+    void FillCup(Color col)
+    {
+        fillRenderer.material.SetColor("_TopColor", col);
+        fillRenderer.material.SetFloat("_FillAmount", fillAmount);
     }
 
     // call this from the tree object if the wrong liquid is given to the tree
@@ -80,5 +92,6 @@ public class Cup : Pickupable {
     {
         // modify model to be empty
         currentLiquid = Liquid.None;
+        fillRenderer.material.SetFloat("_FillAmount", 1);
     }
 }
