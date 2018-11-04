@@ -7,6 +7,10 @@ public class Drawer : Interactable {
     public Vector3 openExtendVector;
     public float openCloseDuration;
 
+    AudioSource audioSource;
+    public AudioClip openAudio;
+    public AudioClip closeAudio;
+
     bool isOpen;
     Vector3 closedPosition;
     Vector3 openPosition;
@@ -15,6 +19,7 @@ public class Drawer : Interactable {
     private void Awake()
     {
         closedPosition = transform.position;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -29,6 +34,19 @@ public class Drawer : Interactable {
     {
         base.Interact(heldItem);
         isOpen = !isOpen;
+
+        if (isOpen)
+        {
+            audioSource.Stop();
+            audioSource.clip = openAudio;
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
+            audioSource.clip = closeAudio;
+            audioSource.Play();
+        }
 
         StopInteracting(); // this interaction is instantaneous
 
