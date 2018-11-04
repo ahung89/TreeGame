@@ -35,6 +35,10 @@ public class Sink : Interactable
             if (cup)
             {
                 cup.FillCup(Cup.Liquid.Water);
+                if (!cup.IsPlayingClip())
+                {
+                    cup.PlayClip(cup.cupFillClip);
+                }
             }
         }
         return false; // No need to try picking up or dropping after this interation

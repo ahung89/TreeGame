@@ -61,6 +61,12 @@ public class Tree : Interactable
                     return false; // No need to try picking up or dropping after this interation
                 }
             }
+            else if (cup && cup.currentLiquid != Cup.Liquid.Milk)
+            {
+                Debug.Log("Nope, don't want that");
+                StartCoroutine(PlayInteractionSounds(null, hardNegativeReaction));
+                return false; // No need to try picking up or dropping after this interation
+            }
 
             // Handle interactions with the Teddy Bear
             if (heldItem.GetComponent<TeddyBear>())
@@ -160,11 +166,15 @@ public class Tree : Interactable
 
     IEnumerator PlayInteractionSounds(Pickupable pickup, AudioClip reactionSound)
     {
-        pickup.PlayTreeInteractionClip();
-        while (pickup.IsPlayingClip())
+        if (pickup)
         {
-            yield return null;
+            pickup.PlayTreeInteractionClip();
+            while (pickup.IsPlayingClip())
+            {
+                yield return null;
+            }
         }
+
         audioSource.clip = reactionSound;
         audioSource.Play();
     }
