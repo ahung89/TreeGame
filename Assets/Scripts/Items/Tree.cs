@@ -6,6 +6,15 @@ public class Tree : Interactable
 {
     public Vector3 bearPlacement = Vector3.zero;
 
+    public AudioSource positiveReactionMilk;
+    public AudioSource positiveReactionTeddy;
+    public AudioSource positiveReactionBook;
+    public AudioSource positiveReactionLight;
+    public AudioSource positiveReactionFlute;
+
+    public AudioSource softNegativeReaction;
+    public AudioSource hardNegativeReaction;
+
     public override bool CanInteractWith(Pickupable heldItem)
     {
         return heldItem != null; // for now, let's highlight the tree any time you bring it an object
@@ -31,6 +40,8 @@ public class Tree : Interactable
                     SequenceTracker.Instance.milkConsumed = true;
                     // elicit a positive reaction
                     Debug.Log("Mmm, Milk is good for strong branches!");
+                    //positiveReactionMilk.Play();
+                    MusicManager.Instance.AddNextLayer();
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else
@@ -49,6 +60,8 @@ public class Tree : Interactable
                     SequenceTracker.Instance.teddyBearProvided = true;
                     Debug.Log("Aww, snuggle time!");
                     // elicit a positive reaction
+                    //positiveReactionTeddy.Play();
+                    MusicManager.Instance.AddNextLayer();
                     heldItem.transform.position = bearPlacement;
                     return true; // The Teddy Bear SHOULD be dropped after this interation
                 }
@@ -75,6 +88,8 @@ public class Tree : Interactable
                     SequenceTracker.Instance.bookRead = true;
                     Debug.Log("Ahh, what a lovely story");
                     // elicit a positive reaction
+                    //positiveReactionBook.Play();
+                    MusicManager.Instance.AddNextLayer();
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else if (SequenceTracker.Instance.teddyBearProvided)
@@ -104,6 +119,8 @@ public class Tree : Interactable
                     SequenceTracker.Instance.flutePlayed = true;
                     Debug.Log("ZZZZZzzzzzzzzz......");
                     // elicit a positive reaction
+                    //positiveReactionFlute.Play();
+                    MusicManager.Instance.AddNextLayer();
                     return false; // No need to try picking up or dropping after this interation
                 }
                 else if (SequenceTracker.Instance.flutePlayed)

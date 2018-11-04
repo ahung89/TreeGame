@@ -9,6 +9,8 @@ public class GasFireValve : Interactable
     public float defaultIntensity = 1f;
     public float minIntensity = 0.1f;
 
+    public Tree tree;
+
     public float dimmingDuration = 3f;
     private bool isDimming = false;
     private bool isDimmed = false;
@@ -36,6 +38,8 @@ public class GasFireValve : Interactable
             SequenceTracker.Instance.fireOut = true;
             Debug.Log("Yaawwwnnnn... Getting sleepy.");
             // elicit a positive reaction
+            //tree.positiveReactionLight.Play();
+            MusicManager.Instance.AddNextLayer();
             return false; // Do not try to pick up or drop item after this interaction
         }
         else if (SequenceTracker.Instance.fireOut)
