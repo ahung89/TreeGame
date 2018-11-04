@@ -8415,8 +8415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireLight: {fileID: 0}
-  noiseFrequency: 2.75
-  noiseWeight: 0.65
+  noiseFrequency: 2.7
+  noiseWeight: 0.8
   defaultIntensity: 1
   minIntensity: 0.2
   tree: {fileID: 0}
