@@ -93,7 +93,31 @@ public class Tree : Interactable
             // Fire interaction is handled at the fireplace
 
             // Handle interactions with the Flute
-            // if (heldItem.GetComponent<Flute>())
+            if (heldItem.GetComponent<Flute>())
+            {
+                if (SequenceTracker.Instance.milkConsumed &&
+                    SequenceTracker.Instance.teddyBearProvided &&
+                    SequenceTracker.Instance.bookRead && 
+                    SequenceTracker.Instance.fireOut && 
+                    !SequenceTracker.Instance.flutePlayed)
+                {
+                    SequenceTracker.Instance.flutePlayed = true;
+                    Debug.Log("ZZZZZzzzzzzzzz......");
+                    // elicit a positive reaction
+                    return false; // No need to try picking up or dropping after this interation
+                }
+                else if (SequenceTracker.Instance.flutePlayed)
+                {
+                    // Could this even happen? Cinematic will have already taken place
+                    Debug.Log("Deja vu all over again...");
+                    return false; // No need to try picking up or dropping after this interation
+                }
+                else
+                {
+                    Debug.Log("Nah, not yet");
+                    return false; // No need to try picking up or dropping after this interation
+                }
+            }
         }
 
         Debug.Log("Nope, don't want that");

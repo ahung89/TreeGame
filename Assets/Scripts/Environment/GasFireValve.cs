@@ -33,6 +33,7 @@ public class GasFireValve : Interactable
             !SequenceTracker.Instance.fireOut)
         {
             isDimming = true;
+            SequenceTracker.Instance.fireOut = true;
             Debug.Log("Yaawwwnnnn... Getting sleepy.");
             // elicit a positive reaction
             return false; // Do not try to pick up or drop item after this interaction
