@@ -46,8 +46,23 @@ public class Cup : Pickupable {
 
             if (heldItem)
             {
-                if (TryFillCup(heldItem))
+                bool fillCup = false;
+                Liquid liquid = Liquid.None;
+
+                if (heldItem.GetComponent<Milk>())
                 {
+                    fillCup = true;
+                    liquid = Liquid.Milk;
+                }
+                else if (heldItem.GetComponent<Water>())
+                {
+                    fillCup = true;
+                    liquid = Liquid.Water;
+                }
+
+                if (fillCup)
+                {
+                    FillCup(liquid);
                     if (!IsPlayingClip())
                     {
                         PlayClip(cupFillClip);
@@ -59,26 +74,22 @@ public class Cup : Pickupable {
         return true;
     }
 
-    // returns whether TryFillCup was successful
-    bool TryFillCup(Pickupable heldItem)
+    public void FillCup(Liquid liquid)
     {
-        if (heldItem.GetComponent<Milk>())
+        if (liquid == Liquid.Milk)
         {
             // modify model to have milk inside of it
             Debug.Log("Cup filled with Milk");
             currentLiquid = Liquid.Milk;
             FillCup(milkColor);
-            return true;
         }
-        else if (heldItem.GetComponent<Water>())
+        else if (liquid == Liquid.Water)
         {
             // modify model to have water inside of it
             Debug.Log("Cup filled with Water");
             currentLiquid = Liquid.Water;
             FillCup(waterColor);
-            return true;
         }
-        return false;
     }
 
     void FillCup(Color col)
