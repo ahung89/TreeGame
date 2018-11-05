@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finaleSource: {fileID: 82412670043921908}
   mixer: {fileID: 24100000, guid: 764774f8e24f5a64ab5517e51e631cc9, type: 2}
-  fadeInTime: 4
+  fadeInTime: 8
   masterVolumeFadeTime: 2
   gameLoopOn: 1
   testing: 0

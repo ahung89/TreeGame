@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a135c76080b5649b3002ea83bcdc84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeInteractionClip: {fileID: 8300000, guid: 54a94345e3e581a45aeabce2e7306283, type: 3}
+  treeInteractionClip: {fileID: 8300000, guid: b1cd7402fd8d75d4f9b21681fcaaaba3, type: 3}
   currentLiquid: 2
   fillRenderer: {fileID: 23826872288899054}
   cupFillClip: {fileID: 8300000, guid: b1cd7402fd8d75d4f9b21681fcaaaba3, type: 3}

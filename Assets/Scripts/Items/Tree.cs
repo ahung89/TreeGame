@@ -212,6 +212,7 @@ public class Tree : Interactable
         {
             yield return null;
         }
+        pickup.gameObject.SetActive(false);
         MusicManager.Instance.PlayFinale();
         CinematicController.Instance.StartCinematic();
         closedMesh.SetActive(false);
