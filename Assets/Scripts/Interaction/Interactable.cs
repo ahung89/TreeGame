@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour {
     {
         // By default, the object should not be interactable while the player is already holding something
         // Some objects may only be capable of being interacted with when the correct item is being held
-        return heldItem == null;
+        return heldItem == null && !SequenceTracker.Instance.flutePlayed;
     }
 
     public virtual bool Interact(Pickupable heldItem)

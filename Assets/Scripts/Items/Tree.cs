@@ -5,9 +5,10 @@ using UnityEngine.Playables;
 
 public class Tree : Interactable
 {
-    public Vector3 bearPlacement = Vector3.zero;
-    public Vector3 cupPlacement = new Vector3(0.86f, 1.12f, 3.26f);
-    public Vector3 bookPlacement = new Vector3(1.18f, 1.12f, 2.85f);
+    public Vector3 bearPlacement = new Vector3(1.16f, 1.12f, 3.21f);
+    public Vector3 cupPlacement = new Vector3(0.86f, 1.12f, 3.32f);
+    public Vector3 bookPlacement = new Vector3(1.22f, 1.12f, 2.85f);
+    public Vector3 flutePlacement = new Vector3(0f, -10f, 0f); // We're simply gonna drop this into space
 
     public AudioClip positiveReactionMilk;
     public AudioClip positiveReactionTeddy;
@@ -39,7 +40,14 @@ public class Tree : Interactable
 
     public override bool CanInteractWith(Pickupable heldItem)
     {
-        return heldItem != null; // for now, let's highlight the tree any time you bring it an object
+        if (SequenceTracker.Instance.flutePlayed)
+        {
+            return false;
+        }
+        else
+        {
+            return heldItem != null; // for now, let's highlight the tree any time you bring it an object
+        }
     }
 
     public override bool Interact(Pickupable heldItem)
@@ -155,8 +163,9 @@ public class Tree : Interactable
                     SequenceTracker.Instance.flutePlayed = true;
                     Debug.Log("ZZZZZzzzzzzzzz......");
                     // elicit a positive reaction
+                    heldItem.transform.position = flutePlacement;
                     StartCoroutine(TriggerEndCinematic(heldItem, positiveReactionFlute));
-                    return false; // No need to try picking up or dropping after this interation
+                    return true; // The Book SHOULD be dropped after this interation
                 }
                 else if (SequenceTracker.Instance.flutePlayed)
                 {
