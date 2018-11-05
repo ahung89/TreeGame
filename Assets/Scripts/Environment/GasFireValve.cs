@@ -23,6 +23,8 @@ public class GasFireValve : Interactable
     private List<float> particleStartSize = new List<float>();
     private float particleEmissionRate;
 
+    public FadeAlpha trebleClefClue;
+
     private void Awake()
     {
         fireLight.intensity = defaultIntensity;
@@ -57,6 +59,7 @@ public class GasFireValve : Interactable
             !SequenceTracker.Instance.fireOut)
         {
             isDimming = true;
+            if (trebleClefClue) trebleClefClue.FadeIn();
             SequenceTracker.Instance.fireOut = true;
             Debug.Log("Yaawwwnnnn... Getting sleepy.");
             // elicit a positive reaction
@@ -80,6 +83,7 @@ public class GasFireValve : Interactable
 
     private void Update()
     {
+        // Calculate reduced fire light intensity and diminish particle effect if currently dimming
         float currentIntensity = defaultIntensity;
         if (isDimming)
         {
@@ -107,6 +111,7 @@ public class GasFireValve : Interactable
             currentIntensity = minIntensity;
         }
 
+        // Add noise to the current fire light intensity
         float noise = 0f;
         for (int i = 0; i < 3; i++)
         {
@@ -115,6 +120,7 @@ public class GasFireValve : Interactable
         }
         fireLight.intensity = currentIntensity + (noiseWeight * (currentIntensity/defaultIntensity) * noise);
 
+        // Mark dimming as complete if dimming time elapsed
         if (isDimming && dimmingElapsed >= dimmingDuration)
         {
             isDimmed = true;
