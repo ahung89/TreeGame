@@ -1191,19 +1191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bearPlacement: {x: 1.16, y: 1.12, z: 3.21}
-  positiveReactionMilk: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
+  positiveReactionMilk: {fileID: 8300000, guid: 8ef6c2599bacb9c4993164028092ac5a,
     type: 3}
-  positiveReactionTeddy: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
+  positiveReactionTeddy: {fileID: 8300000, guid: fb2369716ea684a4bb598464a5e042a4,
     type: 3}
-  positiveReactionBook: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
+  positiveReactionBook: {fileID: 8300000, guid: 415c18285ea50d04da1a4f584021c4e2,
     type: 3}
-  positiveReactionLight: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
+  positiveReactionLight: {fileID: 8300000, guid: 6647bf74ae013c247b51bd9492ffe37a,
     type: 3}
-  positiveReactionFlute: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
+  positiveReactionFlute: {fileID: 8300000, guid: 5cd14c0ffa0bfe845bdc196f36d0f2de,
     type: 3}
-  softNegativeReaction: {fileID: 8300000, guid: 9f4265085b195834a9109fc4bebfb8cc,
+  softNegativeReaction: {fileID: 8300000, guid: 977fb0a3164cbdc4b8b3cd2e89a4f1ee,
     type: 3}
-  hardNegativeReaction: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b,
+  hardNegativeReaction: {fileID: 8300000, guid: 20fe446053071d148a67d997be4f51f4,
     type: 3}
 --- !u!114 &114636349530532336
 MonoBehaviour:
