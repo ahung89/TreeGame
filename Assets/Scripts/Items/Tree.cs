@@ -188,7 +188,6 @@ public class Tree : Interactable
         StartCoroutine(PlayInteractionSounds(null, hardNegativeReaction));
         anim.SetTrigger("Angry");
 
-        Invoke("Chill", 2.5f);
         return false; // No need to try picking up or dropping after this interation
     }
 
