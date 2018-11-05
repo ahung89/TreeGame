@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 4792547474494264}
   - component: {fileID: 320143168725399352}
   m_Layer: 0
-  m_Name: CinematicDirectorForreal
+  m_Name: CinematicDirector 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
