@@ -1687,6 +1687,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3432c57b1e177a4a871288314894a13, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &442266662 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114145275481932716, guid: a3432c57b1e177a4a871288314894a13,
+    type: 2}
+  m_PrefabInternal: {fileID: 442266661}
+  m_Script: {fileID: 11500000, guid: c39d4373ce669004792237d42bc61963, type: 3}
 --- !u!1 &476524297
 GameObject:
   m_ObjectHideFlags: 0
@@ -9705,7 +9711,7 @@ MonoBehaviour:
   noiseWeight: 0.8
   defaultIntensity: 1
   minIntensity: 0.2
-  tree: {fileID: 0}
+  tree: {fileID: 442266662}
   dimmingDuration: 3
   fireParticleEffect: {fileID: 1317612706}
 --- !u!23 &2059940097
