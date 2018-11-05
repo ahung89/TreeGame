@@ -22,11 +22,18 @@ public class Tree : Interactable
 
     Renderer rend;
     AudioSource audioSource;
+    Animator anim;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         rend = GetComponent<Renderer>();
+        anim = GetComponentInChildren<Animator>();
+    }
+
+    public void Chill()
+    {
+        anim.SetTrigger("Chill");
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -168,6 +175,9 @@ public class Tree : Interactable
         Debug.Log("Nope, don't want that");
         // StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
         StartCoroutine(PlayInteractionSounds(null, hardNegativeReaction));
+        anim.SetTrigger("Angry");
+
+        Invoke("Chill", 2.5f);
         return false; // No need to try picking up or dropping after this interation
     }
 
