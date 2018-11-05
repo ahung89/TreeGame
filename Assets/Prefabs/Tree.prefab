@@ -4360,8 +4360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bearPlacement: {x: 1.16, y: 1.12, z: 3.21}
   cupPlacement: {x: 0.81, y: 1.12, z: 3.255}
-  bookPlacement: {x: 1.22, y: 1.12, z: 2.85}
-  flutePlacement: {x: 0, y: -10, z: 0}
+  bookPlacement: {x: 1.23, y: 1.12, z: 2.85}
   positiveReactionMilk: {fileID: 8300000, guid: 8ef6c2599bacb9c4993164028092ac5a,
     type: 3}
   positiveReactionTeddy: {fileID: 8300000, guid: fb2369716ea684a4bb598464a5e042a4,
@@ -4400,10 +4399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17a71347d21ec64286a2ff82caa64cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  milkConsumed: 0
-  teddyBearProvided: 0
-  bookRead: 0
-  fireOut: 0
+  milkConsumed: 1
+  teddyBearProvided: 1
+  bookRead: 1
+  fireOut: 1
   flutePlayed: 0
 --- !u!114 &114654779832211790
 MonoBehaviour:
