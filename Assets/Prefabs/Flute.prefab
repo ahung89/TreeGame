@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6aa01c8c5fba514cad54d45f963f803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeInteractionClip: {fileID: 8300000, guid: 4dfc93e765a016b41be5ff59e4b1004e, type: 3}
+  treeInteractionClip: {fileID: 8300000, guid: b2125707359663e4994f241b14468e18, type: 3}
 --- !u!114 &114747405782535626
 MonoBehaviour:
   m_ObjectHideFlags: 1
