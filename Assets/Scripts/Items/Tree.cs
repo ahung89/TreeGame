@@ -6,6 +6,7 @@ using UnityEngine.Playables;
 public class Tree : Interactable
 {
     public Vector3 bearPlacement = Vector3.zero;
+    public Vector3 cupPlacement = new Vector3(0.86f, 1.12f, 3.26f);
 
     public AudioClip positiveReactionMilk;
     public AudioClip positiveReactionTeddy;
@@ -56,7 +57,8 @@ public class Tree : Interactable
                     StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionMilk));
                     MusicManager.Instance.AddNextLayer();
                     cup.EmptyCup();
-                    return false; // No need to try picking up or dropping after this interation
+                    heldItem.transform.position = cupPlacement;
+                    return true; // The Cup SHOULD be dropped after this interation
                 }
                 else
                 {

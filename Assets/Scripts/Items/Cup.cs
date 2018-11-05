@@ -15,6 +15,8 @@ public class Cup : Pickupable {
 
     public override bool CanInteractWith(Pickupable heldItem)
     {
+        if (SequenceTracker.Instance.milkConsumed) return false;
+
         if (heldItem)
         {
             if (heldItem.GetComponent<Milk>())
