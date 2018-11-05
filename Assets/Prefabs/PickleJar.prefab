@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 136777102786859620}
   - component: {fileID: 65616002213800800}
   - component: {fileID: 54478156087726782}
+  - component: {fileID: 114266496554173718}
   m_Layer: 0
   m_Name: PickleJar
   m_TagString: Untagged
@@ -142,6 +143,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.09, z: 0.09}
   m_Center: {x: 0, y: -0.016, z: 0}
+--- !u!114 &114266496554173718
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547948488127012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e78d5345c602f4c83f38654e07900e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treeInteractionClip: {fileID: 0}
 --- !u!136 &136777102786859620
 CapsuleCollider:
   m_ObjectHideFlags: 1
