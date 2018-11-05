@@ -7,6 +7,7 @@ public class Tree : Interactable
 {
     public Vector3 bearPlacement = Vector3.zero;
     public Vector3 cupPlacement = new Vector3(0.86f, 1.12f, 3.26f);
+    public Vector3 bookPlacement = new Vector3(1.18f, 1.12f, 2.85f);
 
     public AudioClip positiveReactionMilk;
     public AudioClip positiveReactionTeddy;
@@ -122,7 +123,8 @@ public class Tree : Interactable
                     // elicit a positive reaction
                     StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionBook));
                     MusicManager.Instance.AddNextLayer();
-                    return false; // No need to try picking up or dropping after this interation
+                    heldItem.transform.position = bookPlacement;
+                    return true; // The Book SHOULD be dropped after this interation
                 }
                 else if (SequenceTracker.Instance.bookRead)
                 {
