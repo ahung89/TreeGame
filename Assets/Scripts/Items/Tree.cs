@@ -182,7 +182,7 @@ public class Tree : Interactable
     IEnumerator TriggerEndCinematic(Pickupable pickup, AudioClip reactionSound)
     {
         MusicManager.Instance.ToggleGameLoop();
-        pickup.PlayTreeInteractionClip();
+        // pickup.PlayTreeInteractionClip();
         while (pickup.IsPlayingClip())
         {
             yield return null;
