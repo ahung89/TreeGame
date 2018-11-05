@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: de42efa79deef4a43b9955b26516540a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: claudia
+  fontNames:
+  - claudia
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b05ec91d5b5477b4192344a06b95eddc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
