@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 public class Tree : Interactable
 {
     public Vector3 bearPlacement = new Vector3(1.16f, 1.12f, 3.21f);
-    public Vector3 cupPlacement = new Vector3(0.86f, 1.12f, 3.32f);
+    public Vector3 cupPlacement = new Vector3(0.81f, 1.12f, 3.255f);
     public Vector3 bookPlacement = new Vector3(1.22f, 1.12f, 2.85f);
     public Vector3 flutePlacement = new Vector3(0f, -10f, 0f); // We're simply gonna drop this into space
 
@@ -237,5 +237,6 @@ public class Tree : Interactable
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireCube(bearPlacement, Vector3.one * 0.25f);
+        Gizmos.DrawWireCube(cupPlacement, Vector3.one * 0.12f);
     }
 }

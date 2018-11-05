@@ -4359,7 +4359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bearPlacement: {x: 1.16, y: 1.12, z: 3.21}
-  cupPlacement: {x: 0.86, y: 1.12, z: 3.26}
+  cupPlacement: {x: 0.81, y: 1.12, z: 3.255}
   bookPlacement: {x: 1.22, y: 1.12, z: 2.85}
   flutePlacement: {x: 0, y: -10, z: 0}
   positiveReactionMilk: {fileID: 8300000, guid: 8ef6c2599bacb9c4993164028092ac5a,
