@@ -4360,6 +4360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bearPlacement: {x: 1.16, y: 1.12, z: 3.21}
   cupPlacement: {x: 0.86, y: 1.12, z: 3.26}
+  bookPlacement: {x: 1.22, y: 1.12, z: 2.85}
+  flutePlacement: {x: 0, y: -10, z: 0}
   positiveReactionMilk: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
     type: 3}
   positiveReactionTeddy: {fileID: 8300000, guid: aa46ea62426c72240a4a7c9a1899d78d,
@@ -4374,7 +4376,7 @@ MonoBehaviour:
     type: 3}
   hardNegativeReaction: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b,
     type: 3}
-  closedMesh: {fileID: 0}
+  closedMesh: {fileID: 1013263535500530}
   openMesh: {fileID: 1859373618204196}
 --- !u!114 &114212874058300608
 MonoBehaviour:
