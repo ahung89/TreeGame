@@ -16,11 +16,16 @@ public class Tree : Interactable
     public AudioClip softNegativeReaction;
     public AudioClip hardNegativeReaction;
 
+    public GameObject closedMesh;
+    public GameObject openMesh;
+
+    Renderer rend;
     AudioSource audioSource;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        rend = GetComponent<Renderer>();
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -195,6 +200,8 @@ public class Tree : Interactable
         }
         MusicManager.Instance.PlayFinale();
         CinematicController.Instance.StartCinematic();
+        closedMesh.SetActive(false);
+        openMesh.SetActive(true);
     }
 
     public void PlayClip(AudioClip clip)
