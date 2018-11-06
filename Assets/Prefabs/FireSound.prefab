@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4362040313309838}
+  - component: {fileID: 114646613920657036}
   - component: {fileID: 82717598360411422}
   m_Layer: 0
   m_Name: FireSound
@@ -136,3 +137,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114646613920657036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745587684821682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9369f7831592a79429f83cf6e4c2016b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 82717598360411422}
+  fadetype: 0
+  startAtMinVolume: 0
+  maxVolume: 1
+  minVolume: 0
+  fadeInTime: 5
+  fadeOutTime: 40

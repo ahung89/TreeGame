@@ -4377,6 +4377,7 @@ MonoBehaviour:
     type: 3}
   closedMesh: {fileID: 1013263535500530}
   openMesh: {fileID: 1859373618204196}
+  fireCrackling: {fileID: 0}
 --- !u!114 &114212874058300608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4399,10 +4400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17a71347d21ec64286a2ff82caa64cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  milkConsumed: 1
-  teddyBearProvided: 1
-  bookRead: 1
-  fireOut: 1
+  milkConsumed: 0
+  teddyBearProvided: 0
+  bookRead: 0
+  fireOut: 0
   flutePlayed: 0
 --- !u!114 &114654779832211790
 MonoBehaviour:

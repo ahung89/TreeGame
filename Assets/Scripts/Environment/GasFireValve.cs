@@ -59,7 +59,7 @@ public class GasFireValve : Interactable
             !SequenceTracker.Instance.fireOut)
         {
             isDimming = true;
-            if (trebleClefClue) trebleClefClue.FadeIn();
+            if (trebleClefClue) trebleClefClue.StartFadeIn();
             SequenceTracker.Instance.fireOut = true;
             Debug.Log("Yaawwwnnnn... Getting sleepy.");
             // elicit a positive reaction

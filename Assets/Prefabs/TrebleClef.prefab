@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4411976705021220}
   - component: {fileID: 33502887485084468}
   - component: {fileID: 23200690527534870}
+  - component: {fileID: 114915492299116492}
   m_Layer: 0
   m_Name: TrebleClef
   m_TagString: Untagged
@@ -83,3 +84,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1131053575317696}
   m_Mesh: {fileID: 4300000, guid: f32449c88a358674daf995e32fe182f7, type: 3}
+--- !u!114 &114915492299116492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1131053575317696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23819486b6ef0364a8fca6de0ed16baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadetype: 0
+  startClear: 1
+  maxAlpha: 1
+  minAlpha: 0
+  fadeInTime: 5
+  fadeOutTime: 5

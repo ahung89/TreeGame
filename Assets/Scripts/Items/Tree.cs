@@ -22,6 +22,8 @@ public class Tree : Interactable
     public GameObject closedMesh;
     public GameObject openMesh;
 
+    public FadeVolume fireCrackling;
+
     Renderer rend;
     AudioSource audioSource;
     Animator anim;
@@ -221,6 +223,7 @@ public class Tree : Interactable
         {
             yield return null;
         }
+        fireCrackling.StartFadeOut();
         MusicManager.Instance.PlayFinale();
         CinematicController.Instance.StartCinematic();
         closedMesh.SetActive(false);
