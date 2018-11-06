@@ -189,7 +189,6 @@ public class Tree : Interactable
         Debug.Log("Nope, don't want that");
         // StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
         StartCoroutine(PlayInteractionSounds(null, hardNegativeReaction));
-        anim.SetTrigger("Angry");
 
         return false; // No need to try picking up or dropping after this interation
     }
@@ -205,6 +204,10 @@ public class Tree : Interactable
             }
         }
 
+        if (reactionSound == hardNegativeReaction)
+        {
+            anim.SetTrigger("Angry");
+        }
         audioSource.clip = reactionSound;
         audioSource.Play();
     }
@@ -217,14 +220,17 @@ public class Tree : Interactable
         {
             yield return null;
         }
+
         audioSource.clip = reactionSound;
         audioSource.Play();
         while (audioSource.isPlaying)
         {
             yield return null;
         }
+
         fireCrackling.StartFadeOut();
         MusicManager.Instance.PlayFinale();
+
         CinematicController.Instance.StartCinematic();
         closedMesh.SetActive(false);
         openMesh.SetActive(true);
