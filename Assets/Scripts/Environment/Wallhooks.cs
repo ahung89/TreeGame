@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OutsideDoor : Interactable
+public class Wallhooks : Interactable
 {
-    AudioSource doorRattle;
-    DoorShake shakeEffect;
+    AudioSource pansRattle;
+    PotPanShake[] shakeEffects;
 
     void Awake()
     {
-        doorRattle = gameObject.GetComponent<AudioSource>();
-        shakeEffect = gameObject.GetComponent<DoorShake>();
+        pansRattle = gameObject.GetComponent<AudioSource>();
+        shakeEffects = gameObject.GetComponentsInChildren<PotPanShake>();
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -19,11 +19,11 @@ public class OutsideDoor : Interactable
 
     public override bool Interact(Pickupable heldItem)
     {
-        if (!doorRattle.isPlaying)
+        if (!pansRattle.isPlaying)
         {
-            doorRattle.Play();
+            pansRattle.Play();
 
-            if (shakeEffect)
+            foreach (PotPanShake shakeEffect in shakeEffects)
             {
                 shakeEffect.StartShake();
             }

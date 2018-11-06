@@ -829,6 +829,7 @@ GameObject:
   - component: {fileID: 182497226}
   - component: {fileID: 182497228}
   - component: {fileID: 182497227}
+  - component: {fileID: 182497229}
   m_Layer: 0
   m_Name: Pan02
   m_TagString: Untagged
@@ -894,6 +895,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 182497225}
   m_Mesh: {fileID: 4300078, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &182497229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 182497225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 4
+  randomRange: 0.3
 --- !u!1 &190515665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1501,7 @@ GameObject:
   - component: {fileID: 383476900}
   - component: {fileID: 383476902}
   - component: {fileID: 383476901}
+  - component: {fileID: 383476903}
   m_Layer: 0
   m_Name: Spatula02
   m_TagString: Untagged
@@ -1550,6 +1567,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383476899}
   m_Mesh: {fileID: 4300116, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &383476903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383476899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 4
+  randomRange: 0.3
 --- !u!1 &412568922
 GameObject:
   m_ObjectHideFlags: 0
@@ -2792,6 +2824,7 @@ GameObject:
   - component: {fileID: 666453540}
   - component: {fileID: 666453542}
   - component: {fileID: 666453541}
+  - component: {fileID: 666453543}
   m_Layer: 0
   m_Name: Pan04
   m_TagString: Untagged
@@ -2857,6 +2890,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666453539}
   m_Mesh: {fileID: 4300084, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &666453543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666453539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 9
+  randomRange: 0.3
 --- !u!1 &690847335
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,13 +3258,12 @@ AudioSource:
 --- !u!114 &741490008
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114102926461544866, guid: 44477c675ce4e17489b4b9385198797a,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 741490004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d369b6bcdfcbb84f9c02cb6335147f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6842f5fba630da34a8e507c2481c4289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!23 &741490009
@@ -4474,6 +4521,7 @@ GameObject:
   - component: {fileID: 861876195}
   - component: {fileID: 861876197}
   - component: {fileID: 861876196}
+  - component: {fileID: 861876198}
   m_Layer: 0
   m_Name: Spatula01
   m_TagString: Untagged
@@ -4489,7 +4537,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 861876194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0003620386, y: 0.0003966689, z: 0.147582}
+  m_LocalPosition: {x: 0.0008, y: 0.0003966689, z: 0.147582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 741490005}
@@ -4539,6 +4587,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 861876194}
   m_Mesh: {fileID: 4300074, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &861876198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 861876194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 6
+  randomRange: 0.15
 --- !u!1 &863560761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4657,6 +4720,7 @@ GameObject:
   - component: {fileID: 907794586}
   - component: {fileID: 907794588}
   - component: {fileID: 907794587}
+  - component: {fileID: 907794589}
   m_Layer: 0
   m_Name: Pan01
   m_TagString: Untagged
@@ -4722,6 +4786,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 907794585}
   m_Mesh: {fileID: 4300080, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &907794589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 907794585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 9
+  randomRange: 0.35
 --- !u!1 &919221201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,6 +4812,7 @@ GameObject:
   - component: {fileID: 919221202}
   - component: {fileID: 919221204}
   - component: {fileID: 919221203}
+  - component: {fileID: 919221205}
   m_Layer: 0
   m_Name: Pot02
   m_TagString: Untagged
@@ -4798,6 +4878,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 919221201}
   m_Mesh: {fileID: 4300088, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &919221205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919221201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 5.25
+  randomRange: 0.4
 --- !u!1 &956531595
 GameObject:
   m_ObjectHideFlags: 0
@@ -6929,6 +7024,7 @@ GameObject:
   - component: {fileID: 1543378984}
   - component: {fileID: 1543378986}
   - component: {fileID: 1543378985}
+  - component: {fileID: 1543378987}
   m_Layer: 0
   m_Name: Ladle01
   m_TagString: Untagged
@@ -6944,7 +7040,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1543378983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0067517757, y: -0.0009279847, z: 0.14833622}
+  m_LocalPosition: {x: -0.0075, y: -0.0009279847, z: 0.14833622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 741490005}
@@ -6994,6 +7090,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1543378983}
   m_Mesh: {fileID: 4300082, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &1543378987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1543378983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 6
+  randomRange: 0.15
 --- !u!1 &1547661052
 GameObject:
   m_ObjectHideFlags: 0
@@ -8363,6 +8474,7 @@ GameObject:
   - component: {fileID: 1787480494}
   - component: {fileID: 1787480496}
   - component: {fileID: 1787480495}
+  - component: {fileID: 1787480497}
   m_Layer: 0
   m_Name: Pot01
   m_TagString: Untagged
@@ -8428,6 +8540,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1787480493}
   m_Mesh: {fileID: 4300076, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &1787480497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1787480493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 3.25
+  randomRange: 0.3
 --- !u!1 &1797307226
 GameObject:
   m_ObjectHideFlags: 0
@@ -8730,6 +8857,7 @@ GameObject:
   - component: {fileID: 1834175754}
   - component: {fileID: 1834175756}
   - component: {fileID: 1834175755}
+  - component: {fileID: 1834175757}
   m_Layer: 0
   m_Name: Pan03
   m_TagString: Untagged
@@ -8795,6 +8923,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1834175753}
   m_Mesh: {fileID: 4300086, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &1834175757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1834175753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d178d9921e81cb4fbb659432b4c46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 7
+  shakeTime: 2.35
+  maxRotation: 9
+  randomRange: 0.3
 --- !u!1 &1876739938
 GameObject:
   m_ObjectHideFlags: 0

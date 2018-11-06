@@ -25,7 +25,7 @@ public class DoorShake : MonoBehaviour
         }
     }
 
-    public void StartDoorShake()
+    public void StartShake()
     {
         shakeTimeRemaining = shakeTime;
     }
