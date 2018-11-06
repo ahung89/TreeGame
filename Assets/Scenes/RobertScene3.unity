@@ -8518,6 +8518,7 @@ GameObject:
   - component: {fileID: 1830552666}
   - component: {fileID: 1830552665}
   - component: {fileID: 1830552664}
+  - component: {fileID: 1830552669}
   m_Layer: 0
   m_Name: OutsideDoor4
   m_TagString: Untagged
@@ -8542,13 +8543,12 @@ Transform:
 --- !u!114 &1830552664
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 114458586907704366, guid: 44477c675ce4e17489b4b9385198797a,
-    type: 2}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830552662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d369b6bcdfcbb84f9c02cb6335147f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a39f2d813fe39b4a99db0a4894e2c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1830552665
@@ -8705,6 +8705,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1830552662}
   m_Mesh: {fileID: 4300118, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!114 &1830552669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1830552662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bafd09adcc97f44fae549a9f90367ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCount: 5
+  shakeTime: 0.375
+  maxRotation: 1.5
 --- !u!1 &1834175753
 GameObject:
   m_ObjectHideFlags: 0
