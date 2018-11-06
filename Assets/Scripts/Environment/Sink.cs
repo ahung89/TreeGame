@@ -39,13 +39,16 @@ public class Sink : Interactable
                 watterRunningAudioSource.Play();
             }
 
-            Cup cup = heldItem.GetComponent<Cup>();
-            if (cup)
+            if (heldItem)
             {
-                cup.FillCup(Cup.Liquid.Water);
-                if (!cup.IsPlayingClip())
+                Cup cup = heldItem.GetComponent<Cup>();
+                if (cup)
                 {
-                    cup.PlayClip(cup.cupFillClip);
+                    cup.FillCup(Cup.Liquid.Water);
+                    if (!cup.IsPlayingClip())
+                    {
+                        cup.PlayClip(cup.cupFillClip);
+                    }
                 }
             }
         }
