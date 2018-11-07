@@ -8,7 +8,7 @@ public class Pickupable : Interactable {
     bool isHeld;
 
     public AudioClip treeInteractionClip;
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
 
 	void Awake () {
         rb = GetComponent<Rigidbody>();

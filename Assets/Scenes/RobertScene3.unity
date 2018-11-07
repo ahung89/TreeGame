@@ -1460,7 +1460,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0aa6c5f67bb42248b45ae015a966860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treeInteractionClip: {fileID: 8300000, guid: 7d41c8441e1d43d47b6ddd462219d1a0, type: 3}
+  treeInteractionClip: {fileID: 8300000, guid: f2b6b5f4c13c3fc4ead84b696fcb78ca, type: 3}
+  orientBookTime: 0.2
+  rotateBookTime: 0.3
+  openBookTime: 0.8
+  keepOpenTime: 2.8
+  closeBookTime: 0.4
+  rotateBackTime: 0.3
+  frontCover: {fileID: 538722929}
+  backCover: {fileID: 1652608595}
+  pageTurning: {fileID: 8300000, guid: f2b6b5f4c13c3fc4ead84b696fcb78ca, type: 3}
+  pagesFlipping: {fileID: 8300000, guid: 7d41c8441e1d43d47b6ddd462219d1a0, type: 3}
+  bookReading: {fileID: 8300000, guid: 9a73ff1eaf6caa042addac64fa2c071d, type: 3}
+  bookClosing: {fileID: 8300000, guid: 821c5fee141011e41b99db5a001e46b1, type: 3}
 --- !u!54 &338680897
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1721,6 +1733,16 @@ Prefab:
       propertyPath: fireCrackling
       value: 
       objectReference: {fileID: 2006515210}
+    - target: {fileID: 114636349530532336, guid: a3432c57b1e177a4a871288314894a13,
+        type: 2}
+      propertyPath: milkConsumed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114636349530532336, guid: a3432c57b1e177a4a871288314894a13,
+        type: 2}
+      propertyPath: teddyBearProvided
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3432c57b1e177a4a871288314894a13, type: 2}
   m_IsPrefabAsset: 0
@@ -8929,7 +8951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeCount: 5
   shakeTime: 0.375
-  maxRotation: 1.5
+  maxRotation: 1.25
 --- !u!1 &1834175753
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,10 +131,11 @@ public class Tree : Interactable
                     SequenceTracker.Instance.bookRead = true;
                     Debug.Log("Ahh, what a lovely story");
                     // elicit a positive reaction
-                    StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionBook));
-                    MusicManager.Instance.AddNextLayer();
-                    heldItem.transform.position = bookPlacement;
-                    return true; // The Book SHOULD be dropped after this interation
+                    StartCoroutine(HandleReadingBook(heldItem.GetComponent<Book>()));
+                    // StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionBook));
+                    // MusicManager.Instance.AddNextLayer();
+                    // heldItem.transform.position = bookPlacement;
+                    return false; // PickupHolder should NOT try picking up or dropping after this interation
                 }
                 else if (SequenceTracker.Instance.bookRead)
                 {
@@ -191,6 +192,26 @@ public class Tree : Interactable
         StartCoroutine(PlayInteractionSounds(null, hardNegativeReaction));
 
         return false; // No need to try picking up or dropping after this interation
+    }
+
+    IEnumerator HandleReadingBook(Book book)
+    {
+        book.StartBookAnimation();
+
+        // book.PlayTreeInteractionClip();
+        while (book.IsAnimationPlaying())
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+
+        // TODO: Handle playing of book sounds in Book script based on phase of animation
+        audioSource.clip = positiveReactionBook;
+        audioSource.Play();
+
+        MusicManager.Instance.AddNextLayer();
+        FindObjectOfType<PickupHolder>().TryPickup(); // When item is currently held, this will drop the item, i.e. the book
+        book.transform.position = bookPlacement;
     }
 
     IEnumerator PlayInteractionSounds(Pickupable pickup, AudioClip reactionSound)
