@@ -8,6 +8,7 @@ public class Sink : Interactable
     private bool waterStreamRunning = false;
 
     public GameObject waterStream;
+    public GameObject splashEffect;
 
     public AudioSource watterRunningAudioSource;
 
@@ -26,12 +27,7 @@ public class Sink : Interactable
         Debug.Log("Interact with Sink");
         if (CanInteractWith(heldItem))
         {
-            if (!waterStreamRunning)
-            {
-                waterStream.SetActive(true);
-                waterStreamRunning = true;
-                waterStreamElapsed = 0f;
-            }
+            StartWaterRunning();
 
             // Play water running sound
             if (watterRunningAudioSource && watterRunningAudioSource.clip && !watterRunningAudioSource.isPlaying)
@@ -63,9 +59,39 @@ public class Sink : Interactable
             
             if (waterStreamElapsed >= waterStreamDuration)
             {
-                waterStreamRunning = false;
-                waterStream.SetActive(false);
+                StartCoroutine(StopWaterRunning());
             }
         }
+    }
+
+    private void StartWaterRunning()
+    {
+        if (!waterStreamRunning)
+        {
+            waterStream.SetActive(true);
+            waterStreamRunning = true;
+            waterStreamElapsed = 0f;
+
+            ParticleSystem[] particleSystems = splashEffect.GetComponentsInChildren<ParticleSystem>();
+            foreach (ParticleSystem particleSystem in particleSystems)
+            {
+                particleSystem.Play();
+            }
+        }
+    }
+
+    IEnumerator StopWaterRunning()
+    {
+        waterStreamRunning = false;
+
+        ParticleSystem[] particleSystems = splashEffect.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            particleSystem.Stop();
+        }
+
+        yield return new WaitForSeconds(0.25f); // Last particles need some time to die
+        
+        waterStream.SetActive(false);
     }
 }
