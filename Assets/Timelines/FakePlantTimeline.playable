@@ -2421,7 +2421,7 @@ MonoBehaviour:
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
-    m_BlendOutDuration: 0.5166664441426576
+    m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
       m_Curve: []
@@ -2445,15 +2445,15 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: RoomPan
     m_Version: 1
-  - m_Start: 24.95
+  - m_Start: 25.466666444142657
     m_ClipIn: 0
     m_Asset: {fileID: 114030066541466522}
-    m_Duration: 14.55
+    m_Duration: 14.033333555857343
     m_TimeScale: 1
     m_ParentTrack: {fileID: 114106234964325358}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 0.5166664441426576
+    m_BlendInDuration: -1
     m_BlendOutDuration: -1
     m_MixInCurve:
       serializedVersion: 2
