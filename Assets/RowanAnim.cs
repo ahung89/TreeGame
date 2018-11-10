@@ -12,7 +12,7 @@ public class RowanAnim : MonoBehaviour {
 	
 	public void Chill()
     {
-        Debug.Log("chill");
-        anim.SetTrigger("Chill");
+        Debug.Log("Idle");
+        anim.SetTrigger("Idle");
     }
 }

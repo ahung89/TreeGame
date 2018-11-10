@@ -135,6 +135,7 @@ public class GasFireValve : Interactable
         {
             yield return null;
         }
+        tree.anim.SetTrigger("Positive");
         tree.PlayClip(tree.positiveReactionLight);
     }
 }

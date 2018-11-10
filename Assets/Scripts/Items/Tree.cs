@@ -26,7 +26,7 @@ public class Tree : Interactable
 
     Renderer rend;
     AudioSource audioSource;
-    Animator anim;
+    [HideInInspector] public Animator anim;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class Tree : Interactable
 
     public void Chill()
     {
-        anim.SetTrigger("Chill");
+        anim.SetTrigger("Idle");
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -205,6 +205,8 @@ public class Tree : Interactable
         }
         yield return new WaitForSeconds(1f);
 
+        anim.SetTrigger("Positive");
+
         // TODO: Handle playing of book sounds in Book script based on phase of animation
         audioSource.clip = positiveReactionBook;
         audioSource.Play();
@@ -227,8 +229,19 @@ public class Tree : Interactable
 
         if (reactionSound == hardNegativeReaction)
         {
-            anim.SetTrigger("Angry");
+            anim.SetTrigger("Hard Negative");
         }
+        else if (reactionSound == softNegativeReaction)
+        {
+            anim.SetTrigger("Soft Negative");
+            yield return new WaitForSeconds(0.25f);
+        }
+        else if (reactionSound == positiveReactionMilk ||
+                reactionSound == positiveReactionTeddy) // The other reactions get triggered elsewhere (i.e. HandleReadingBook(), TriggerEndCinematic(), and and GasFireValve.cs)
+        {
+            anim.SetTrigger("Positive");
+        }
+
         audioSource.clip = reactionSound;
         audioSource.Play();
     }
@@ -241,6 +254,8 @@ public class Tree : Interactable
         {
             yield return null;
         }
+
+        anim.SetTrigger("Positive");
 
         audioSource.clip = reactionSound;
         audioSource.Play();
