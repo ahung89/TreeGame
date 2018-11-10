@@ -66,4 +66,12 @@ public class MusicManager : MonoBehaviour {
         gameLoopOn = false; // ensure loop is off (but it already should be)
         finaleSource.Play();
     }
+
+    public void ResetMusicLayers()
+    {
+        for (int i = 1; i < 5; i++)
+        {
+            mixer.SetFloat("Vol" + i, -80.0f);
+        }
+    }
 }
