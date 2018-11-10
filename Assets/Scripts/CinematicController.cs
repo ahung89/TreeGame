@@ -19,10 +19,12 @@ public class CinematicController : MonoBehaviour {
 
     void Update () {
         // test
+        /*
         if (Input.GetKeyDown(KeyCode.T))
         {
             StartCinematic();
         }
+        */
 	}
 
     public void StartCinematic()

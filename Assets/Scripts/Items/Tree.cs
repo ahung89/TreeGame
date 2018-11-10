@@ -255,6 +255,9 @@ public class Tree : Interactable
         CinematicController.Instance.StartCinematic();
         closedMesh.SetActive(false);
         openMesh.SetActive(true);
+        yield return new WaitForSeconds(90f);
+        PlayerInput playerInput = FindObjectOfType<PlayerInput>(); // Hacky way to do this, this should really be done in its own GameManager script
+        playerInput.Restart();
     }
 
     public void PlayClip(AudioClip clip)

@@ -173,7 +173,7 @@ public class PlayerInput : MonoBehaviour {
         }
     }
 
-    private void Restart()
+    public void Restart()
     {
         // Debug.Log("Restart Game");
         // MusicManager.Instance = null;
