@@ -248,6 +248,7 @@ public class Tree : Interactable
 
     IEnumerator TriggerEndCinematic(Pickupable pickup, AudioClip reactionSound)
     {
+        FindObjectOfType<InteractionDetector>().TurnOffHighlighting(); // This is pretty hacky but... should work for now
         MusicManager.Instance.ToggleGameLoop();
         // pickup.PlayTreeInteractionClip();
         while (pickup.IsPlayingClip())

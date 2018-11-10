@@ -58,6 +58,14 @@ public class InteractionDetector : MonoBehaviour {
         Utils.SortByAngleFromPlayer(interactablesInRange, cam);
     }
 
+    public void TurnOffHighlighting()
+    {
+        if (nearestInteractable)
+        {
+            OutlineManager.Instance.UnapplyOutline(nearestInteractable.gameObject);
+        }
+    }
+
     private void Update()
     {
         if (interactablesInRange.Count == 0)
