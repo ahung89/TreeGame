@@ -14,6 +14,7 @@
 			ZWrite Off
 			ZTest Always
 
+
 			Pass
 			{
 				CGPROGRAM
@@ -33,6 +34,8 @@
 					float2 uv : TEXCOORD0;
 					float4 vertex : SV_POSITION;
 				};
+
+				uniform float isMac = 1;
 
 				sampler2D _CameraDepthTexture;
 				sampler2D _OutlineDepthBuffer;
@@ -93,6 +96,8 @@
 					float4 vertex : SV_POSITION;
 				};
 
+				uniform float isMac = 1;
+
 				sampler2D _MainTex;
 				sampler2D _SceneTex;
 
@@ -124,7 +129,10 @@
 					float2 grabUv = i.uv;
 
 					#if !UNITY_UV_STARTS_AT_TOP
-					grabUv.y = 1 - grabUv.y;
+					if (isMac != 1)
+					{
+						grabUv.y = 1 - grabUv.y;
+					}
 					#endif
 
 					for (int j = 0; j < blurIterations; j++)

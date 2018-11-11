@@ -18,6 +18,7 @@ public class OutlineManager : MonoBehaviour
         }
 
         cachedLayers = new Dictionary<GameObject, Dictionary<Renderer, int>>();
+        Shader.SetGlobalFloat("isMac", Application.platform == RuntimePlatform.OSXPlayer ? 1 : 0);
     }
 
     public void ApplyOutline(GameObject objectToOutline)
