@@ -737,7 +737,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960675254735266}
   m_LocalRotation: {x: 0.49970078, y: -0.47010666, z: 0.37784502, w: 0.62171704}
-  m_LocalPosition: {x: 2.027712, y: 7.8590097, z: -6.236756}
+  m_LocalPosition: {x: 2.027712, y: 7.859036, z: -6.236756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4968768846049922}
@@ -764,7 +764,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1557737919249438}
-  m_LocalRotation: {x: 0.683678, y: -0.15718107, z: 0.15446317, w: 0.69571525}
+  m_LocalRotation: {x: 0.68367827, y: -0.15718052, z: 0.15446278, w: 0.6957152}
   m_LocalPosition: {x: 3.2085857, y: 610.89276, z: -9.767194}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -832,7 +832,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1054855439692970}
-  m_LocalRotation: {x: 0.6799499, y: -0.1731402, z: 0.17014714, w: 0.69191086}
+  m_LocalRotation: {x: 0.67994976, y: -0.17314023, z: 0.1701471, w: 0.691911}
   m_LocalPosition: {x: 2.4281535, y: 633.24976, z: -7.923467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1355,7 +1355,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Programming:\n\t\tRobert Ackley\n\t\tAndrew Hermus\n\t\tAndrew Hung\n\nArt:\n\t\tSarah
-    Belhumeur\n\nMusic/SFX:\n\t\tSteve Garcia"
+    Belhumeur\n\nMusic/SFX:\n\t\tSteven J Garcia"
 --- !u!114 &114249417896830926
 MonoBehaviour:
   m_ObjectHideFlags: 1
