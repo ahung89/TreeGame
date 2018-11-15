@@ -8,7 +8,10 @@ public class Tree : Interactable
     public Vector3 bearPlacement = new Vector3(1.16f, 1.12f, 3.21f);
     public Vector3 cupPlacement = new Vector3(0.81f, 1.12f, 3.255f);
     public Vector3 bookPlacement = new Vector3(1.23f, 1.12f, 2.85f);
-    // public Vector3 flutePlacement = new Vector3(1.22f, 1.12f, 2.85f);
+
+    public Vector3 bearRotation = new Vector3(0f, 45f, 0f);
+    public Vector3 cupRotation = new Vector3(0f, 0f, 0f);
+    public Vector3 bookRotation = new Vector3(0f, 45f, 0f);
 
     public AudioClip positiveReactionMilk;
     public AudioClip positiveReactionTeddy;
@@ -76,6 +79,7 @@ public class Tree : Interactable
                     MusicManager.Instance.AddNextLayer();
                     cup.EmptyCup();
                     heldItem.transform.position = cupPlacement;
+                    heldItem.transform.rotation = Quaternion.Euler(cupRotation);
                     return true; // The Cup SHOULD be dropped after this interation
                 }
                 else
@@ -104,6 +108,7 @@ public class Tree : Interactable
                     StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionTeddy));
                     MusicManager.Instance.AddNextLayer();
                     heldItem.transform.position = bearPlacement;
+                    heldItem.transform.rotation = Quaternion.Euler(bearRotation);
                     return true; // The Teddy Bear SHOULD be dropped after this interation
                 }
                 else if (SequenceTracker.Instance.teddyBearProvided)
@@ -214,6 +219,7 @@ public class Tree : Interactable
         MusicManager.Instance.AddNextLayer();
         FindObjectOfType<PickupHolder>().TryPickup(); // When item is currently held, this will drop the item, i.e. the book
         book.transform.position = bookPlacement;
+        book.transform.rotation = Quaternion.Euler(bookRotation);
     }
 
     IEnumerator PlayInteractionSounds(Pickupable pickup, AudioClip reactionSound)
