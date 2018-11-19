@@ -23,6 +23,8 @@ public class GasFireValve : Interactable
     private List<float> particleStartSize = new List<float>();
     private float particleEmissionRate;
 
+    private GasValveTurn turnEffect;
+
     public FadeAlpha trebleClefClue;
 
     private void Awake()
@@ -43,6 +45,8 @@ public class GasFireValve : Interactable
                 particleEmissionRate = particles.emissionRate;
             }
         }
+
+        turnEffect = GetComponent<GasValveTurn>();
     }
 
     public override bool CanInteractWith(Pickupable heldItem)
@@ -63,6 +67,7 @@ public class GasFireValve : Interactable
             SequenceTracker.Instance.fireOut = true;
             Debug.Log("Yaawwwnnnn... Getting sleepy.");
             // elicit a positive reaction
+            turnEffect.StartFullTurn();
             StartCoroutine(PlayInteractionSounds());
             MusicManager.Instance.AddNextLayer();
             return false; // Do not try to pick up or drop item after this interaction
@@ -76,6 +81,7 @@ public class GasFireValve : Interactable
         else
         {
             Debug.Log("Nah, not yet");
+            turnEffect.StartPartialTurn();
             tree.PlayClip(tree.softNegativeReaction);
             return false; // No need to try picking up or dropping after this interation
         }
