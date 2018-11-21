@@ -4,13 +4,16 @@ using System.Collections;
 public class Sink : Interactable
 {
     public float waterStreamDuration = 2f;
-    private float waterStreamElapsed = 0f;
+    private float waterStreamElapsed = -1f;
     private bool waterStreamRunning = false;
 
     public GameObject waterStream;
     public GameObject splashEffect;
 
-    public AudioSource watterRunningAudioSource;
+    public AudioSource waterRunningAudioSource;
+
+    public FaucetHandleTurn leftHandleTurn;
+    public FaucetHandleTurn rightHandleTurn;
 
     private void Awake()
     {
@@ -27,23 +30,24 @@ public class Sink : Interactable
         Debug.Log("Interact with Sink");
         if (CanInteractWith(heldItem))
         {
-            StartWaterRunning();
-
-            // Play water running sound
-            if (watterRunningAudioSource && watterRunningAudioSource.clip && !watterRunningAudioSource.isPlaying)
+            if (!waterStreamRunning)
             {
-                watterRunningAudioSource.Play();
+                Debug.Log("Start Water Running");
+                StartWaterRunning();
             }
 
-            if (heldItem)
+            if (waterStreamRunning)
             {
-                Cup cup = heldItem.GetComponent<Cup>();
-                if (cup)
+                if (heldItem)
                 {
-                    cup.FillCup(Cup.Liquid.Water);
-                    if (!cup.IsPlayingClip())
+                    Cup cup = heldItem.GetComponent<Cup>();
+                    if (cup)
                     {
-                        cup.PlayClip(cup.cupFillClip);
+                        cup.FillCup(Cup.Liquid.Water);
+                        if (!cup.IsPlayingClip())
+                        {
+                            cup.PlayClip(cup.cupFillClip);
+                        }
                     }
                 }
             }
@@ -53,13 +57,15 @@ public class Sink : Interactable
 
     private void Update()
     {
-        if (waterStreamRunning)
+        if (waterStreamRunning && waterStreamElapsed >= 0f)
         {
             waterStreamElapsed += Time.deltaTime;
             
             if (waterStreamElapsed >= waterStreamDuration)
             {
+                Debug.Log("Stop Water Running");
                 StartCoroutine(StopWaterRunning());
+                waterStreamElapsed = -1f; // Coroutine does not immediately flip waterStreamRunning, so we will use -1f to show that it should not be incremented
             }
         }
     }
@@ -68,9 +74,19 @@ public class Sink : Interactable
     {
         if (!waterStreamRunning)
         {
+            leftHandleTurn.StartTurnOn();
+            rightHandleTurn.StartTurnOn();
+
             waterStream.SetActive(true);
             waterStreamRunning = true;
             waterStreamElapsed = 0f;
+
+            // Play water running sound
+            if (waterRunningAudioSource && waterRunningAudioSource.clip) // && !waterRunningAudioSource.isPlaying)
+            {
+                waterRunningAudioSource.Stop();
+                waterRunningAudioSource.Play();
+            }
 
             ParticleSystem[] particleSystems = splashEffect.GetComponentsInChildren<ParticleSystem>();
             foreach (ParticleSystem particleSystem in particleSystems)
@@ -82,7 +98,10 @@ public class Sink : Interactable
 
     IEnumerator StopWaterRunning()
     {
-        waterStreamRunning = false;
+        leftHandleTurn.StartTurnOff();
+        rightHandleTurn.StartTurnOff();
+
+        yield return new WaitForSeconds(0.75f); // Give handle turning a bit of a head start
 
         ParticleSystem[] particleSystems = splashEffect.GetComponentsInChildren<ParticleSystem>();
         foreach (ParticleSystem particleSystem in particleSystems)
@@ -93,5 +112,9 @@ public class Sink : Interactable
         yield return new WaitForSeconds(0.25f); // Last particles need some time to die
         
         waterStream.SetActive(false);
+
+        yield return new WaitForSeconds(0.25f); // Allow time for handles to finish turning off
+
+        waterStreamRunning = false;
     }
 }
