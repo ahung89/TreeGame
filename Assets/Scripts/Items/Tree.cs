@@ -31,6 +31,8 @@ public class Tree : Interactable
     AudioSource audioSource;
     [HideInInspector] public Animator anim;
 
+    private bool currentlyReadingBook = false;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -129,6 +131,12 @@ public class Tree : Interactable
             // Handle interactions with the Childen's Book
             if (heldItem.GetComponent <Book>())
             {
+                // Do not do anything if book animation is currently playing
+                if (currentlyReadingBook)
+                {
+                    return false; // PickupHolder should NOT try picking up or dropping during this interation
+                }
+
                 if (SequenceTracker.Instance.milkConsumed && 
                     SequenceTracker.Instance.teddyBearProvided &&
                     !SequenceTracker.Instance.bookRead)
@@ -191,6 +199,11 @@ public class Tree : Interactable
                 }
             }
         }
+        else
+        {
+            // If no item is held, nothing should happen (this can occur if held item just given and interaction is still available)
+            return false; // PickupHolder should NOT try picking up or dropping anything
+        }
 
         Debug.Log("Nope, don't want that");
         // StartCoroutine(PlayInteractionSounds(heldItem, hardNegativeReaction));
@@ -201,6 +214,8 @@ public class Tree : Interactable
 
     IEnumerator HandleReadingBook(Book book)
     {
+        currentlyReadingBook = true;
+
         book.StartBookAnimation();
 
         // book.PlayTreeInteractionClip();
@@ -220,6 +235,8 @@ public class Tree : Interactable
         FindObjectOfType<PickupHolder>().TryPickup(); // When item is currently held, this will drop the item, i.e. the book
         book.transform.position = bookPlacement;
         book.transform.rotation = Quaternion.Euler(bookRotation);
+
+        currentlyReadingBook = false;
     }
 
     IEnumerator PlayInteractionSounds(Pickupable pickup, AudioClip reactionSound)
