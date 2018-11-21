@@ -6,6 +6,7 @@ public class Door : Interactable {
 
     public float rotationDuration;
     public float rotationAmount = 90;
+    public float delayOnClosingSound = 0f;
     public bool isVerticalHinge = true;
 
     AudioSource audioSource;
@@ -47,13 +48,20 @@ public class Door : Interactable {
         }
         else
         {
-            audioSource.Stop();
-            audioSource.clip = closeAudio;
-            audioSource.Play();
+            StartCoroutine(PlayClosingSound());
         }
 
         StopInteracting(); // this interaction is instantaneous
 
         return false; // No need to try picking up or dropping after this interation
+    }
+
+    IEnumerator PlayClosingSound()
+    {
+        yield return new WaitForSeconds(delayOnClosingSound);
+
+        audioSource.Stop();
+        audioSource.clip = closeAudio;
+        audioSource.Play();
     }
 }

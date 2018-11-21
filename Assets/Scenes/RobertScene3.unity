@@ -398,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.3
   rotationAmount: 80
+  delayOnClosingSound: 0
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: f3c3482ad983d5f448f67803706f73f7, type: 3}
   closeAudio: {fileID: 8300000, guid: 989f912aff668c94c968c3188bc0504e, type: 3}
@@ -618,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: 70
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
@@ -3171,6 +3173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: -70
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
@@ -4150,6 +4153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.3
   rotationAmount: 80
+  delayOnClosingSound: 0
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: f3c3482ad983d5f448f67803706f73f7, type: 3}
   closeAudio: {fileID: 8300000, guid: 989f912aff668c94c968c3188bc0504e, type: 3}
@@ -4490,6 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: -90
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
@@ -4571,8 +4576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea9a84188a57cd4d8f0ce40b7f026f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationDuration: 0.3
+  rotationDuration: 0.55
   rotationAmount: 90
+  delayOnClosingSound: 1.4
   isVerticalHinge: 0
   openAudio: {fileID: 8300000, guid: b806a5487d75f994a81c931aaeabd78d, type: 3}
   closeAudio: {fileID: 8300000, guid: e18446ae4787f78498d5f2bc2f8478a2, type: 3}
@@ -5813,6 +5819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: -90
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
@@ -8301,6 +8308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: 90
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
@@ -8536,6 +8544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: -90
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
@@ -10149,6 +10158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationDuration: 0.2
   rotationAmount: 90
+  delayOnClosingSound: 0.35
   isVerticalHinge: 1
   openAudio: {fileID: 8300000, guid: 4a5c9d3d0693ea44386c378ebe32a442, type: 3}
   closeAudio: {fileID: 8300000, guid: 3d5e133c984a23b45af42dd50837ec4b, type: 3}
