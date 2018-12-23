@@ -27,6 +27,10 @@ public class Tree : Interactable
 
     public FadeVolume fireCrackling;
 
+    public SurfaceClearer clearForCup;
+    public SurfaceClearer clearForBear;
+    public SurfaceClearer clearForBook;
+
     Renderer rend;
     AudioSource audioSource;
     [HideInInspector] public Animator anim;
@@ -80,6 +84,7 @@ public class Tree : Interactable
                     StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionMilk));
                     MusicManager.Instance.AddNextLayer();
                     cup.EmptyCup();
+                    if (clearForCup) clearForCup.ClearArea();
                     heldItem.transform.position = cupPlacement;
                     heldItem.transform.rotation = Quaternion.Euler(cupRotation);
                     return true; // The Cup SHOULD be dropped after this interation
@@ -109,6 +114,7 @@ public class Tree : Interactable
                     // elicit a positive reaction
                     StartCoroutine(PlayInteractionSounds(heldItem, positiveReactionTeddy));
                     MusicManager.Instance.AddNextLayer();
+                    if (clearForBear) clearForBear.ClearArea();
                     heldItem.transform.position = bearPlacement;
                     heldItem.transform.rotation = Quaternion.Euler(bearRotation);
                     return true; // The Teddy Bear SHOULD be dropped after this interation
@@ -233,6 +239,7 @@ public class Tree : Interactable
 
         MusicManager.Instance.AddNextLayer();
         FindObjectOfType<PickupHolder>().TryPickup(); // When item is currently held, this will drop the item, i.e. the book
+        if (clearForBook) clearForBook.ClearArea();
         book.transform.position = bookPlacement;
         book.transform.rotation = Quaternion.Euler(bookRotation);
 
