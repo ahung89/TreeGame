@@ -14198,7 +14198,7 @@ MonoBehaviour:
   clearAreaPosition: {x: 1.23, y: 1.2, z: 2.85}
   clearAreaSize: {x: 0.25, y: 0.25, z: 0.25}
   boxCastDistance: 0.2
-  dropLocation: {x: 0.88, y: 1, z: 2.5}
+  dropLocation: {x: 0.88, y: 1, z: 2.45}
 --- !u!114 &1942514094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14213,7 +14213,7 @@ MonoBehaviour:
   clearAreaPosition: {x: 1.175, y: 1.2, z: 3.2}
   clearAreaSize: {x: 0.2, y: 0.2, z: 0.2}
   boxCastDistance: 0.25
-  dropLocation: {x: 1.15, y: 1, z: 2.5}
+  dropLocation: {x: 1.15, y: 1, z: 2.45}
 --- !u!114 &1942514095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14882,6 +14882,7 @@ GameObject:
   - component: {fileID: 2005608159}
   - component: {fileID: 2005608158}
   - component: {fileID: 2005608157}
+  - component: {fileID: 2005608160}
   m_Layer: 0
   m_Name: Sidetable
   m_TagString: Untagged
@@ -14960,6 +14961,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2005608155}
   m_Mesh: {fileID: 4300006, guid: f005cd1dca775b24a9cdba52c00a754f, type: 3}
+--- !u!65 &2005608160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2005608155}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.01, z: 0.155}
+  m_Center: {x: 0.000000007450581, y: -0.112, z: -0.00000009685755}
 --- !u!114 &2006515210 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114646613920657036, guid: e460f5805dcd68f4aba1bfa85490fbf2,
