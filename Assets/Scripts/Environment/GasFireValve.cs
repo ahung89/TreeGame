@@ -82,6 +82,7 @@ public class GasFireValve : Interactable
         {
             Debug.Log("Nah, not yet");
             turnEffect.StartPartialTurn();
+            tree.anim.SetTrigger("Soft Negative");
             tree.PlayClip(tree.softNegativeReaction);
             return false; // No need to try picking up or dropping after this interation
         }
